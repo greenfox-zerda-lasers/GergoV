@@ -1,0 +1,72 @@
+<link href="https://fonts.googleapis.com/css?family=Cantata+One" rel="stylesheet">
+
+/* Elemek */
+
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+p {
+  font-family: "Cantata One";
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 800;
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+  letter-spacing: -.02em;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 1.04;
+  letter-spacing: -.028em;
+}
+
+h2 {
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+  font-weight: 300;
+  color: grey;
+  text-align: center;
+  font-size: 24px; }
+
+img {
+  padding: 10px;
+}
+
+a {
+color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+figure {
+  display: block;
+}
+
+/* Klasszok */
+
+.title {
+  margin-top: 39px;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.lead {
+  width: 700px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.article {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.caption {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-color: grey;
+}
