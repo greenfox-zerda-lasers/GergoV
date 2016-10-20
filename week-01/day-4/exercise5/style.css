@@ -1,0 +1,38 @@
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: orange;
+}
+
+strong {
+  color: red;
+}
+
+em {
+ color: blue;
+}
+
+main {
+  margin: 12px 40px;
+}
+
+/* Lists */
+
+.main {
+  color: blue;
+}
+
+.nested {
+  color: black;
+  list-style-type: disc;
+}
+
+.redli {
+  color: red;
+}
+
+ol {
+  color: black;
+}

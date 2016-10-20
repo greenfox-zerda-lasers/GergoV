@@ -1,0 +1,24 @@
+body {
+  font: 15px Times, Serif;
+  line-height: 1.4em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+main {
+  margin: 22px 32px;
+  width: 350px;
+}
+
+div {
+  padding: 18px;
+  border-right: 2px black solid;
+  border-bottom: 2px black solid;
+  border-left: 2px black solid;
+}
+
+div:hover {
+  background-color: #EC6842;
+}

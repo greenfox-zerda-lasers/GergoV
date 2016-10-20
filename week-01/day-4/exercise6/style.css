@@ -1,0 +1,18 @@
+body {
+  font: 18px Times, Serif;
+}
+
+h1 {
+  font-size: 1.9em;
+}
+
+main {
+  margin: 20px 40px;
+  width: 380px;
+}
+
+blockquote {
+  border-left: 2px black solid;
+  padding-left: 20px;
+  margin-left: -2px;
+}
