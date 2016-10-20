@@ -1,0 +1,29 @@
+/* Main elements */
+
+main {
+  padding-top: 10px;
+}
+
+/* Classes */
+
+.exercise-1 {
+  width: 200px;
+  margin: 10px 38px;
+  padding: 20px 20px 16px;
+  border: 4px solid black;
+  font-family: Serif;
+  font-size: 30px;
+  color: #DA1B00;
+  background-color: yellow;;
+}
+
+/* Measured sizes:
+
+Top-group distance: 28px
+Distance between boxes: 10px
+Box width (outer): 248px
+Padding left: 41px
+Padding top: 24px
+Pading bottom: 16px
+
+*/
