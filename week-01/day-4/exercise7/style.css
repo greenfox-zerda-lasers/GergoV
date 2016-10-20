@@ -1,5 +1,5 @@
 body {
-  font: 15px Times, Serif;
+  font: 18px Times, Serif;
   line-height: 1.4em;
 }
 
@@ -7,9 +7,16 @@ h1 {
   font-size: 2em;
 }
 
+/* I had no idea how wide
+these objects should be.
+
++ Linux renders fonts a bit
+differently.
+*/
+
 main {
   margin: 22px 32px;
-  width: 350px;
+  width: 360px;
 }
 
 div {
