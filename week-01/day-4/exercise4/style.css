@@ -1,0 +1,15 @@
+h1, h2 {
+  color: green;
+}
+
+strong {
+  color: red;
+}
+
+em {
+ color: blue;
+}
+
+main {
+  margin: 17px 40px;
+}
