@@ -1,0 +1,22 @@
+DEVNOTES
+
+bg image size, contain
+selector
+
+hgroup
+nav
+
+SIZES
+
+Main width: 790px
+Article width: 685px
+
+image: 2250 x 804
+
+FONTS
+
+Header:
+'Abril Fatface' font, #222 grey;
+
+Main:
+'Josefin Sans' font, #222 grey;

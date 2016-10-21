@@ -1,0 +1,107 @@
+/* Structure */
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 19px;
+  line-height: 1.6rem;
+  color: #222;
+}
+
+header {
+  position: relative;
+  width: 1280px;
+  height: 410px;
+  margin: 0 auto;
+  background: url(images/anakin.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+main {
+  position: relative;
+  margin: 0 auto;
+  width: 700px;
+}
+
+/* Header fonts */
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-weight: normal;
+  font-size: 4rem;
+  letter-spacing: 0.01rem;
+}
+
+h4 {
+  font-family: 'Abril Fatface', cursive;
+  font-weight: normal;
+  font-size: 1.6rem;
+  margin-bottom: -26px;
+}
+
+/* Main fonts */
+
+h2 {
+  font-size: 1.1rem;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.02rem;
+}
+
+h5 {
+  font-family: 'Merriweater';
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Structure */
+
+#headertext {
+  width: 700px;
+  position: absolute;
+  left: 290px;
+  bottom: 30px;
+  margin: 0 auto;
+}
+
+article {
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+article li {
+  list-style-type: square;
+}
+
+blockquote {
+  display: block;
+  position: relative;
+  background-color: #444444;
+  margin-left: -60px;
+  width: 790px;
+  height: 170px;
+}
+
+blockquote::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "\201C"; /* Double left quote */
+    font-family: 'Abril Fatface', cursive;
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+    color: white;
+}
+
+blockquote p {
+  position: absolute;
+  left: 60px;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  color: white;
+}

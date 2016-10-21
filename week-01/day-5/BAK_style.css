@@ -1,0 +1,107 @@
+/* Structure */
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
+  line-height: 1.4em;
+  color: #222;
+}
+
+header {
+  position: relative;
+  width: 1280px;
+  height: 410px;
+  margin: 0 auto;
+  background: url(images/anakin.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+main {
+  margin: 0 auto;
+  width: 700px;
+}
+
+/* Header fonts */
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-weight: normal;
+  font-size: 3.2em;
+  letter-spacing: 0.01em;
+}
+
+h4 {
+  font-family: 'Abril Fatface', cursive;
+  font-weight: normal;
+  font-size: 1.6em;
+  margin-bottom: -26px;
+}
+
+/* Main fonts */
+
+h2 {
+  font-size: 1.1em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.1em;
+  letter-spacing: 0.02em;
+}
+
+h5 {
+  font-family: 'Merriweater';
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Structure */
+
+#headertext {
+  width: 700px;
+  position: absolute;
+  left: 290px;
+  bottom: 30px;
+  margin: 0 auto;
+}
+
+#intro {
+  font-size: 1.0em;
+}
+
+article {
+  font-size: 0.8em;
+  line-height: 1.2em;
+}
+
+li {
+  list-style-type: square;
+}
+
+blockquote {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  background-color: #444444;
+
+  width: 790px;
+  padding: 10px;
+  margin: 20px;
+
+  /*Font*/
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3.2em;
+  color: white;
+}
+
+  blockquote::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "\201C"; /* Double left quote */
+    font-size: 3em;
+    font-family: 'Abril Fatface', cursive;
+    color: white;
+}
