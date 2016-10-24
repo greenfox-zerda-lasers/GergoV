@@ -1,0 +1,53 @@
+body {
+  width: 540px;
+  margin: 20px auto;
+}
+
+header {
+  background-color: cyan;
+  width: 540px;
+  height: 100px;
+}
+
+main {
+  background-color: red;
+  width: 299px;
+  height: 500px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-item-centered {
+  position: relative;
+}
+
+.flex-item-left {
+  background-color: orange;
+  width: 100px;
+  height: 500px;
+}
+
+.flex-item-right {
+  background-color: purple;
+  width: 100px;
+  height: 500px;
+}
+
+footer {
+  background-color: blue;
+  width: 540px;
+  height: 100px;
+}
+
+#blackbox {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
