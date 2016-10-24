@@ -1,0 +1,42 @@
+/* NOTES
+
+Body/main
+width: 296px
+margin-left: 32px
+fontsize: 12px
+
+ARTICLE
+text: 7+5 rows
+
+article img float left
+  img 98x94px
+  margins: top, outer side 0;
+            bottom 33px, inner side 21-22px
+  border-padding: 21px
+
+  border:
+
+same as above, article img float right
+
+*/
+
+body {
+  width: 296px;
+  margin-left: 32px;
+}
+
+article {
+  padding: 20px 0px;
+  border-bottom: 2px solid black;
+  text-align: justify;
+}
+
+.float-left {
+  float: left;
+  margin: 0 20px 30px 0;
+}
+
+.float-right {
+  float: right;
+  margin: 0 0 30px 20px;
+}
