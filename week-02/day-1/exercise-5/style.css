@@ -1,0 +1,28 @@
+main {
+  width: 602px;
+  height: 482px;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+div {
+  width: 185px;
+  height: 145px;
+  background-color: red;
+  border: 4px solid black;
+  margin: 2px;
+}
+
+.oh-snap {
+  position: relative;
+  display: flex;
+  top: 7px;
+  left: 7px;
+}
+
+.oh-snap p {
+  display: block;
+  justify-content: center;
+}
