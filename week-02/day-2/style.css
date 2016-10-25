@@ -1,0 +1,10 @@
+.flex-container {
+  widt: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-item {
+  width: 280px;
+}
