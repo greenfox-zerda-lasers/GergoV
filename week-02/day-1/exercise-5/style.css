@@ -3,7 +3,7 @@ main {
   height: 482px;
   background-color: grey;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
