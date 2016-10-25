@@ -1,10 +1,51 @@
+/* Week-02 Day-02 Tuesday, === Exercise: FORM =*/
+
+
+/* Layout */
+
+body {
+  background-color: RGB(220,214,205);
+  width: 820px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
+form {
+  width: 620px;
+  margin: 50px 100px;
+}
+
+textarea {
+  width: 100%;
+  height: 166px;
+}
+
+
+
+/* Flex tools */
+
 .flex-container {
-  widt: 600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .flex-item {
-  width: 280px;
+  flex-grow: 1;
+}
+
+/* Upper main sections */
+.upper {
+  width: 298px;
+}
+
+/* Buttons at the end */
+.button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  flex-grow: 0;
+  width: 20%;
 }
