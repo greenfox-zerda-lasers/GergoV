@@ -1,0 +1,101 @@
+/*
+===================================
+
+   *** Exercise: Fancy TABLE ***
+
+              le CSS
+
+===================================
+*/
+
+/* Table styles reset */
+
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* Styling */
+
+body {
+  font-family: 'Roboto', sans-serif; font-weight: 300;
+  background-color: #3E94EC;
+}
+
+table {
+  border: collapse;
+  width: 798px;
+  margin: 35px 30px;
+  border-collapse: collapse;
+}
+
+/* TR BG colors */
+
+tbody tr:nth-of-type(even) {
+  background-color: #FFFFFF;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #EBEBEB;
+}
+
+/* Cell layout, sizing and border setup */
+
+th {
+  font-weight: lighter;
+  font-size: 30px;
+  background-color: #1B1E24;
+  color: #D4DCE4;
+  text-align: left;
+  padding: 31px 28px;
+  border: 1px solid #9EA7AF;
+  border-top: 0;
+  border-bottom: 4px solid #9EA7AF;
+}
+
+td {
+  font-weight: bolder;
+  font-size: 22px;
+  color: #767991;
+  text-align: left;
+  padding: 28px 30px;
+  border: 1px solid #9EA7AF;
+}
+
+/* Outer borders OFF: */
+
+th:nth-of-type(1) {
+  border-left: 0;
+  border-top-left-radius: 5px;
+}
+
+th:nth-of-type(2) {
+  border-right: 0;
+  border-top-right-radius: 5px;
+}
+
+tr td:nth-of-type(1) {
+  border-left: 0;
+}
+
+tr td:nth-of-type(2) {
+  border-right: 0;
+}
+
+tr:last-of-type td:nth-of-type(1) {
+  border-bottom: 0;
+  border-bottom-left-radius: 5px;
+}
+
+tr:last-of-type td:nth-of-type(2) {
+  border-bottom: 0;
+  border-bottom-right-radius: 5px;
+}
