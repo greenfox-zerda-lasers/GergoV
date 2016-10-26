@@ -1,0 +1,68 @@
+/*
+===================================
+
+   *** Exercise: Fancy Buttons ***
+
+          le Stylesheet
+
+===================================
+*/
+
+body {
+
+}
+
+/* General bBUTTONS with gradientutton size */
+
+button {
+  font-size: 32px;
+  letter-spacing: -2.5px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 8px 55px 12px;
+  color: white;
+  display: inline-block;
+  margin: 2px;
+}
+
+/* Normal state */
+
+.button-white {
+  color: #7C7C7C;
+  background-image: linear-gradient(#fbfbfb 15%, #e2e2e2);
+  border: 1px solid #d4d4d4;
+  box-shadow: 0px 0px 1px 1px #D4D4D4;
+}
+
+.button-white:hover {
+  background-image: linear-gradient(#fbfbfb 55%, #e2e2e2);
+}
+
+.button-white:active {
+  background-image: linear-gradient(#e2e2e2 15%, #fbfbfb);
+}
+
+.button-blue {
+  background-image: linear-gradient(#00b5e5 15%, #008db2);
+  border: 2px solid #007995;
+}
+
+.button-blue:hover {
+  background-image: linear-gradient(#00b5e5 55%, #008db2);
+}
+
+.button-blue:active {
+  background-image: linear-gradient(#008db2 15%, #00b5e5);
+}
+
+.button-green {
+  background-image: linear-gradient(#8fcf00 15%, #6c9d00);
+  border: 2px solid #5a8200;
+}
+
+.button-green:hover {
+  background-image: linear-gradient(#8fcf00 55%, #6c9d00);
+}
+
+.button-green:active {
+  background-image: linear-gradient(#6c9d00 15%, #8fcf00);
+}
