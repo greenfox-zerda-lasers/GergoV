@@ -43,27 +43,27 @@ input:not([type="checkbox"]) {
   width: 100%;
 }
 
-input {
+input[id="nem"] {
+  display: line-block;
+}
 
+label[for="nem"] {
+  display: line-block;
 }
 
 /* Flex tools */
 
+.flex-container 
+
 .flex-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   border: 2px dotted purple;
 }
 
 .flex-item {
   flex-grow: 1;
-    border: 2px dotted gold;
-}
-
-/* Upper main sections */
-.upper {
-  width: 298px;
+  border: 2px dotted gold;
 }
 
 /* Buttons at the end */
@@ -75,7 +75,7 @@ input {
   width: 20%;
 }
 
-/* COLORS
+/* --- COLORS ---
 
 Submit button colors:
 Top: #52496B
