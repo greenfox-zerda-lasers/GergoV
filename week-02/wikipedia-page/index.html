@@ -27,44 +27,39 @@
     <!-- === [ SECTION MARKUP TOOLKIT ] === -->
     <!-- === [ SECTION MARKUP TOOLKIT ] = [ *end* ] === -->
 
-    <!-- === [ PAGE HEADER ] === -->
-    <header class="page-header">
-      <img src="../../bootcamp/placeholder-img.png" alt="Wikipedia Logo">
-
-      <!-- === [ PAGE TOOLBOX ] === -->
-      <nav class="page-header-toolbox">
-        Not logged in, Talk, Contributions, Create account, Log in
-        [Searchbox may come here]
-      </nav>
-      <!-- === [ PAGE TOOLBOX ] = [ *end* ] === -->
-
-    </header>
-    <!-- === [ PAGE HEADER ] = [ *END* ] === -->
-
-
-
     <!-- === [ MAIN section ] === -->
     <main>
 
-    <div class="main-flexwreapper">
 
-
-      <!-- == [ MAIN section's HEADER ] == -->
-      <!-- The WHITE area basically. -->
-      <!-- This is the home of the article tabs. -->
-      <header class="main-section-header">
-        <nav class="main-section-header-tab-left">Article</nav>
-        <nav class="main-section-header-tab-left">Talk</nav>
-        <nav class="main-section-header-tab-right">Read</nav>
-        <nav class="main-section-header-tab-right">Edit</nav>
-        <nav class="main-section-header-tab-right">View History</nav>
-        <nav class="main-section-header-tab-right">(Search)</nav>
-      </header>
-      <!-- == [ MAIN section's HEADER ] = [ *end* ] == -->
+      <!-- === [ PAGE TOOLBOX ] === -->
+      <nav class="page-header-toolbox">
+        <a href="">Not logged in</a>
+        <a href="">Talk</a>
+        <a href="">Contributions</a>
+        <a href="">Create account</a>
+        <a href="">Log in</a>
+      </nav>
+      <!-- === [ PAGE TOOLBOX ] = [ *end* ] === -->
 
 
       <!-- == [ ARTICLE ] - [ The Wikipedia Article itself ] == -->
       <article>
+
+        <!-- == [ ARTICEL header with TABS ] == -->
+        <nav class="article-tab-header">
+          <section class="article-tab-header-item-left">
+            <a href="">Article</a>
+            <a href="">Talk</a>
+          </section>
+          <section class="article-tab-header-item-right">
+          <a href="">Read</a>
+          <a href="">Edit</a>
+          <a href="">View History</a>
+          <input type="text" placeholder="Search"></input>
+        </section>
+        </nav>
+        <!-- == [ MAIN section's HEADER ] = [ *END* ] == -->
+
 
         <!-- = [ Article Header ] = -->
         <header class="article-header">
@@ -164,34 +159,44 @@
       </article>
       <!-- == [ ARTICLE ] = [*end*] == -->
 
+      <!-- == [ PAGE FOOTER ] == -->
+      <footer class="page-footer">
+        This page was modified..., licnce, links, img, img
+      </footer>
+      <!-- == [ PAGE FOOTER ] = [ *end* ] == -->
+
+
     </main>
     <!-- == [ MAIN section ] = [*end*] === -->
 
 
 
 
-
     <!-- === [ PAGE SIDEBAR ] - [ Page menu ] === -->
-    <aside class="page-sidebar">
-      *PAGE SIDEBAR*
-      Main page
-      ...
+    <aside>
 
-      Interaction
-      Tools
-      Print/Export
-      In other projects
-      Languages
+      <!-- == [ PAGE LOGO ] == -->
+      <header class="page-logo">
+        <img src="../../bootcamp/placeholder-img.png" alt="Wikipedia Logo">
+      </header>
+      <!-- == [ PAGE LOGO ] = [ *END* ] == -->
+
+      <!-- == [ PAGE SIDEBAR NAV ] == -->
+      <nav class="page-sidebar-nav">
+        *PAGE SIDEBAR*
+        Main page
+        ...
+
+        Interaction
+        Tools
+        Print/Export
+        In other projects
+        Languages
+      </nav>
+      <!-- == [ PAGE LOGO ] = [ *END* ] == -->
+
     </aside>
    <!-- === [ PAGE SIDEBAR ] = [ end ] === -->
-
-
-
-   <!-- === [ PAGE FOOTER ] === -->
-   <footer class="page-footer">
-     This page was modified..., licnce, links, img, img
-   </footer>
-   <!-- === [ PAGE FOOTER ] = [ *end* ] === -->
 
 
   </body>

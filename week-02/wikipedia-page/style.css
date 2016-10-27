@@ -15,38 +15,27 @@ body {
   display: flex;
 }
 
-.page-header {
-  order: 1;
-  width: 100%;
+main {
+  order: 2;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-main {
-  order: 3;
-  background-color: white;
+aside {
+  order: 1;
+}
+
+/* FORMATTING ELEMENTS */
+
+/* - Inside main */
+
+.page-header-toolbox {
   display: flex;
 }
 
-.page-sidebar {
-  order: 2;
-}
-
-.page-footer {
-  order: 3;
-  width: 100%;
-  align-self: flex-bottom;
-  border: 1px dotted black;
-}
-
-
-
-/* FORMATTING ELEMENTS */
-/* Page header and parts */
-
-.page-header img {
-  width: 125px;
-}
-
-.page-header-toolbox {
+.page-header-toolbox a {
+  
 }
 
 /* Article */
@@ -66,4 +55,14 @@ main {
 
 .article-image img {
   width: 224px;
+}
+
+
+/* - Aside
+
+.page-logo img {
+  width: 125px;
+}
+
+.page-header-toolbox {
 }
