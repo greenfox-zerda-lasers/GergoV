@@ -17,7 +17,6 @@ body {
 
 main {
   order: 2;
-  background-color: white;
   display: flex;
   flex-wrap: wrap;
 }
@@ -26,20 +25,47 @@ aside {
   order: 1;
 }
 
+article {
+  background-color: white;
+}
+
 /* FORMATTING ELEMENTS */
 
 /* - Inside main */
 
 .page-header-toolbox {
   display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
-.page-header-toolbox a {
-  
+/* Article area */
+
+/* Article header tabs */
+
+.article-tab-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-/* Article */
+.article-tab-header-placeholder {
+  flex-grow: 1;
+  background-color: #F9F9F9;
+}
 
+.article-tab-header-searchfield-bg {
+  flex-grow: 1;
+  background-color: #F9F9F9;
+}
+
+
+.article-tab-header section {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Article content */
 .article-infobox {
   background-color: #F9F9F9;
 }
@@ -58,7 +84,7 @@ aside {
 }
 
 
-/* - Aside
+/* - Aside */
 
 .page-logo img {
   width: 125px;
