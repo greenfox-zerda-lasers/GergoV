@@ -8,6 +8,62 @@
 ===================================
 */
 
-article-header {
+/* MAIN STRUCTURE and format */
 
+body {
+  background-color: #F6F6F6;
+  display: flex;
+}
+
+.page-header {
+  order: 1;
+  width: 100%;
+}
+
+main {
+  order: 3;
+  background-color: white;
+  display: flex;
+}
+
+.page-sidebar {
+  order: 2;
+}
+
+.page-footer {
+  order: 3;
+  width: 100%;
+  align-self: flex-bottom;
+  border: 1px dotted black;
+}
+
+
+
+/* FORMATTING ELEMENTS */
+/* Page header and parts */
+
+.page-header img {
+  width: 125px;
+}
+
+.page-header-toolbox {
+}
+
+/* Article */
+
+.article-infobox {
+  background-color: #F9F9F9;
+}
+
+.article-infobox img {
+  width: 220px;
+}
+
+.article-image {
+  background-color: #F9F9F9;
+  float: right;
+}
+
+.article-image img {
+  width: 224px;
 }

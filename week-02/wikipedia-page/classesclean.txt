@@ -1,0 +1,17 @@
+    <header page-header>
+      <nav page-header-toolbox>
+      <header main-section-header>
+        <nav main-section-header-tab-left>Article</nav>
+        <nav main-section-header-tab-left>Talk</nav>
+        <nav main-section-header-tab-right>Read</nav>
+        <nav main-section-header-tab-right>Edit</nav>
+        <nav main-section-header-tab-right>View History</nav>
+        <nav main-section-header-tab-right>(Search)</nav>
+        <header article-header>
+          <p article-header-subtitle>From Wikipedia, the free encyclopedia</p>
+          <p article-header-disambiguation>For other people named Margaret Hamilton, see Margaret Hamilton (disambiguation).</p>
+        <figure article-infobox>
+        <aside article-navbox>
+          <figure article-image>
+    <aside page-sidebar>
+   <footer page-footer>
