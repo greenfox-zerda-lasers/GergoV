@@ -1,0 +1,78 @@
+/*
+===================================
+
+   *** Exercise: Hover Button ***
+
+          le Stylesheet
+
+===================================
+*/
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100%;
+}
+
+.white-diamond {
+  border-radius: 5px;
+  height: 129px;
+  width: 129px;
+  background-color: white;
+  text-decoration: none;
+  transform: rotate(45deg);
+}
+
+.frame {
+  // background-color: RGBA(255,0,0,0.1);
+  border: 4px solid tomato;
+  border-radius: 5px;
+  width: 125px;
+  height: 125px;
+  margin-left: -130px;
+  transition: 1s;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame p {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: 1s;
+}
+
+.frame:hover {
+  cursor: pointer;
+  transform: rotate(-45deg);
+}
+
+.frame:hover p {
+  color: tomato;
+  transform: rotate(45deg);
+}
+/*
+===================================
+
+# Manual
+
+.white diamond is a static bg.
+Copy p is contained by .frame.
+To hover, frame turns; p changes
+color AND turns in the different
+direction at the same rate to
+keep text still.
+
+===================================
+*/
