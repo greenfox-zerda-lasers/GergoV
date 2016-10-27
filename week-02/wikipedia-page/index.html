@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head><!doctype html>
+
 <!--
 ===================================
 
@@ -9,8 +9,10 @@
             le HTML
 
 ===================================
+
+! Remove section headers after formatting sections with no <hr>
 -->
-<html>
+
   <head>
 
     <meta charset="utf-8">
@@ -26,23 +28,35 @@
     <!-- === [ SECTION MARKUP TOOLKIT ] = [ *end* ] === -->
 
     <!-- === [ PAGE HEADER ] === -->
-    <header>
-    Wikipedia logo
+    <header class="page-header">
+      <img src="../../bootcamp/placeholder-img.png" alt="Wikipedia Logo">
+
+      <!-- === [ PAGE TOOLBOX ] === -->
+      <nav class="page-header-toolbox">
+        Not logged in, Talk, Contributions, Create account, Log in
+        [Searchbox may come here]
+      </nav>
+      <!-- === [ PAGE TOOLBOX ] = [ *end* ] === -->
+
     </header>
     <!-- === [ PAGE HEADER ] = [ *end* ] === -->
 
-    <!-- === [ TOOLBAR ] === -->
-    <toolbar>
-      Not logged in, Talk, Contributions, Create account, Log in
-    </toolbar>
-    <!-- === [ TOOLBAR ] = [ *end* ] === -->
 
 
     <!-- === [ MAIN section ] === -->
     <main>
 
+
       <!-- == [ MAIN section's HEADER ] == -->
-      <header class="main-header">
+      <!-- The WHITE area basically. -->
+      <!-- This is the home of the article tabs. -->
+      <header class="main-section-header">
+        <nav class="main-section-header-tab-left">Article</nav>
+        <nav class="main-section-header-tab-left">Talk</nav>
+        <nav class="main-section-header-tab-right">Read</nav>
+        <nav class="main-section-header-tab-right">Edit</nav>
+        <nav class="main-section-header-tab-right">View History</nav>
+        <nav class="main-section-header-tab-right">(Search)</nav>
       </header>
       <!-- == [ MAIN section's HEADER ] = [ *end* ] == -->
 
@@ -51,21 +65,22 @@
       <article>
 
         <!-- = [ Article Header ] = -->
-        <header>
+        <header class="article-header">
           <h1>Margaret Hamilton (Scientist)</h1>
-          <p>From Wikipedia, the free encyclopedia</p>
-          <p>For other people named Margaret Hamilton, see Margaret Hamilton (disambiguation).</p>
+          <p class="article-header-subtitle">From Wikipedia, the free encyclopedia</p>
+          <p class="article-header-disambiguation">For other people named Margaret Hamilton, see Margaret Hamilton (disambiguation).</p>
         </header>
         <!-- = [ Article Header ] = [ *end* ] = -->
 
         <!-- = [ Article Lead ] = -->
         <section>
+          <p>Eiusmod duis deserunt velit mollit officia sunt amet. Ea est duis eu exercitation ipsum adipisicing elit ad et reprehenderit. Laborum elit tempor occaecat duis sint nostrud laboris mollit.</p>
         </section>
         <!-- = [ Article Lead ] = [ *end* ] = -->
 
         <!-- = [ Article InfoBox ] = -->
-        <figure>
-          Infobox title
+        <figure class="article-infobox">
+          <h3>Infobox title</h3>
           <img src="../../bootcamp/placeholder-img.png">
           <figcaption></figcaption>
           <dl>
@@ -77,7 +92,7 @@
         <!-- = [ Article InfoBox ] = [ *end* ] = -->
 
         <!-- = [ Article NavBox ] = -->
-        <aside>
+        <aside class="article-navbox">
           Contents
           <ol>
             <li>Early life</li>
@@ -106,7 +121,7 @@
           </header>
 
           <!-- [ Article Image ] -->
-          <figure>
+          <figure class="article-image">
             <img src="../../bootcamp/placeholder-img.png">
             <figcaption>Img title</figcaption>
           </figure>
@@ -150,8 +165,12 @@
     </main>
     <!-- == [ MAIN section ] = [*end*] === -->
 
+
+
+
+
     <!-- === [ PAGE SIDEBAR ] - [ Page menu ] === -->
-    <aside>
+    <aside class="page-sidebar">
       *PAGE SIDEBAR*
       Main page
       ...
@@ -167,7 +186,7 @@
 
 
    <!-- === [ PAGE FOOTER ] === -->
-   <footer>
+   <footer class="page-footer">
      This page was modified..., licnce, links, img, img
    </footer>
    <!-- === [ PAGE FOOTER ] = [ *end* ] === -->
