@@ -15,6 +15,11 @@ body {
   display: flex;
 }
 
+@font-face {
+  font-family: 'Liberation Regular';
+  src: url(liberation-serif.regular.ttf);
+}
+
 main {
   order: 2;
   display: flex;
@@ -27,6 +32,10 @@ aside {
 
 article {
   background-color: white;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  padding-left: 24px;
 }
 
 /* FORMATTING ELEMENTS */
@@ -39,7 +48,7 @@ article {
   justify-content: flex-end;
 }
 
-/* Article area */
+/* ARTICLE area */
 
 /* Article header tabs */
 
@@ -59,20 +68,80 @@ article {
   background-color: #F9F9F9;
 }
 
-
 .article-tab-header section {
   display: flex;
   flex-wrap: nowrap;
 }
 
 /* Article content */
+
+h1 {
+  font-family: 'Liberation Regular', serif;
+  font-size: 29px;
+  font-weight: 200;
+  border-bottom: 1px black solid;
+  padding-bottom: 4px;
+}
+
+h2 {
+  font-family: 'Liberation Regular', serif;
+
+}
+
+.article-lead {
+  float: left;
+}
+
+/* Article infobox and navbox */
+
+figure {
+  border: 1px solid #AAAAAA;
+}
+
+figcaption {
+  text-align: center;
+}
+
 .article-infobox {
   background-color: #F9F9F9;
+  float: right;
+  line-height: 18px;
+  width: 271px;
 }
 
 .article-infobox img {
+  padding: 0px 25px;
   width: 220px;
+  margin: 0 auto;
 }
+
+.article-infobox table {
+  font-size: 12px;
+  line-height: 18px;
+  padding: 2px 2px;
+}
+
+.article-infobox th, td {
+  vertical-align: top;
+  text-align: left;
+}
+
+.article-infobox h3 {
+  text-align: center;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 10px;}
+
+/* Article navbox */
+
+.article-navbox {
+
+  width: 123px;
+  border: 1px solid #AAAAAA;
+  background-color: #F6F6F6;
+}
+
+/* Article image */
 
 .article-image {
   background-color: #F9F9F9;
@@ -84,7 +153,9 @@ article {
 }
 
 
-/* - Aside */
+
+
+/* - Page Sidebar - */
 
 .page-logo img {
   width: 125px;
