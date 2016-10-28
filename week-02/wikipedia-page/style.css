@@ -29,7 +29,6 @@ main {
 aside {
   order: 1;
   background-color: #F6F6F6;
-
 }
 
 article {
@@ -52,8 +51,9 @@ a {
 
 .main-header {
   flex-grow: 1;
-  background-image: linear-gradient(white 80%, #F6F6F6);
+  background-image: linear-gradient(white 60%, #F6F6F6);
 }
+
 .page-header-toolbox {
   font-family: 'Arial', sans-serif;
   font-size: 12px;
@@ -193,13 +193,8 @@ figcaption {
 }
 
 
-
-
 /* - Page Sidebar - */
 
 .page-logo img {
-  width: 125px;
-}
-
-.page-header-toolbox {
+  width: 128px;
 }
