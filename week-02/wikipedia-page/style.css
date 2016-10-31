@@ -28,10 +28,6 @@ main {
   flex-wrap: wrap;
 }
 
-aside {
-  order: 1;
-}
-
 article {
   background-color: white;
   font-family: 'Helvetica', sans-serif;
@@ -139,12 +135,6 @@ input[type="text"] {
 
 /* Article content */
 
-.article-header p {
-  /* p defaults reset for header */
-  magin: 0;
-  padding: 0;
-}
-
 .article-header-subtitle {
   font-size: 13px;
   line-height: 21px;
@@ -184,7 +174,7 @@ figcaption {
   float: right;
   line-height: 18px;
   width: 269px;
-  margin: 0 0 30px 12px;
+  margin: 0 0 6.2px 12px;
 }
 
 .article-infobox img {
@@ -215,6 +205,10 @@ figcaption {
   line-height: 18px;
   margin: 6px 0px 5px;}
 
+.clear-floats-both {
+  clear: both;
+}
+
 /* Article navbox */
 
 .article-navbox {
@@ -233,7 +227,7 @@ section h2 {
   line-height: 27px;
   margin: 21px 0 5.250px;
   border-bottom: 1px #aaaaaa solid;
-
+  overflow: hidden;
 }
 
 section p {
@@ -254,6 +248,32 @@ section p {
 
 /* - Page Sidebar - */
 
-.page-logo img {
-  width: 128px;
+.page-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-sidebar-nav {
+  width: 176px;
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #5e5e5e;
+}
+
+.page-sidebar-nav section {
+  margin: 0px 16px 0px 28px;
+  padding: 5px 0 5px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.page-sidebar-nav a {
+  display: block;
+}
+
+.page-sidebar-nav ul {
+  padding-left: 16px;
+  list-style-type: none;
+  margin: 0;
 }
