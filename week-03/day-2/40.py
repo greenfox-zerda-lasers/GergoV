@@ -8,3 +8,18 @@ students = [
 # then returns how many candies are own by students
 # under 10
 
+def candycrush(val):
+    candies = 0
+    slist = []
+    
+    for i in val:
+        slist += [i['name']]
+        if i['age'] < 10:
+            candies += i['candies']
+            
+    print("Students names are:", slist)
+    # print("Candies owned by age 10< :",candies)
+
+    return candies
+    
+print(candycrush(students))

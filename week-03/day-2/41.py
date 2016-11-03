@@ -10,4 +10,11 @@ students = [
 # create a function that counts the students that
 # has more than 4 candies
 
-
+def candykids(val):
+    j = 0
+    for i in val:
+        if i['candies'] > 4:
+            j += 1;
+    return j
+    
+print("More than 4 candies:", candykids(students),"students")
