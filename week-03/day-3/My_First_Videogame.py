@@ -35,3 +35,4 @@ print("")
 
 enemy_1.attack()
 enemy_1.checklife()
+
