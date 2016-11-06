@@ -29,8 +29,11 @@ class drawmediamond:
                 # n is: steps taken from x // 2 to last step
                 n = i - (self.lines - i)
                 aster = (i * 2) - (n * 2) - 1
-            indents = (self.lines * 2 - aster) // 2 - 3 # The remaining space between x(max) not filled, /2 because indent left; donno why too much
+            indents = (self.lines * 2 - aster) // 2 # The remaining space between x(max) not filled, /2 because indent left;
             print(indents * " " + aster * "*")
+            
+awesomediamond = drawmediamond(8)
+awesomediamond.drawit()
 
 """
 1st version: calculation + pirmitive steps
@@ -57,5 +60,3 @@ class drawmediamond:
             
 """
           
-primitivediamond = drawmediamond(11)
-primitivediamond.drawit()
