@@ -18,16 +18,29 @@ print(readline('texts/zen_of_python.txt', 4))
 
 # 3. Create a method that gets a long sentence as param and gives back the contained words in a list
 def words(sentence):
-    pass
+    nodot = sentence.rstrip('.')
+    result = nodot.split()
+    return result
 
 # 4. Create a method that gets a list of words and creates a sentence with the words separated by spaces
 def sentence(words):
-    pass
+    word_list = words
+    word_list[0] = str.title(word_list[0])
+    output = ' '.join(word_list)
+    output += '.'
+    return output
 
 # 5. Create a method that gets a string and gives back the character codes in a list
 def char_codes(string):
-    pass
+    string_letter_list = []
+    for i in string:
+        string_letter_list.append(ord(i))
+    return string_letter_list
 
 # 6. Create a method that gets a list of integers and gives back a string which characters are created from the numbers used as character codes
 def string(char_codes):
-    pass
+    letterlist = []
+    for i in char_codes:
+        letterlist += chr(i)
+    output = "".join(letterlist)
+    return output   
