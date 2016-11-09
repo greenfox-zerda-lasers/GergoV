@@ -31,7 +31,7 @@ class drawmediamond:
                 aster = (i * 2) - (n * 2) - 1
             indents = (self.lines * 2 - aster) // 2 # The remaining space between x(max) not filled, /2 because indent left;
             print(indents * " " + aster * "*")
-            
+           
 awesomediamond = drawmediamond(8)
 awesomediamond.drawit()
 

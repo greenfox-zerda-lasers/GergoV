@@ -13,8 +13,8 @@ numbers = [7, 5, 8, -1, 2, -5]
 # in a list (your own min function)
 
 def fsmallest(val):
+    smallest = val[0]
     for i in val:
-        smallest = val[0]
         for j in val:
             if smallest > j:
                 smallest = j
