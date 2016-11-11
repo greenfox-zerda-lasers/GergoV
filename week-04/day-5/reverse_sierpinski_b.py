@@ -10,7 +10,7 @@ h = 0.866
 canvas = Canvas(root, width=w, height=w*h, bg="lightgray")
 canvas.pack()
 
-def draw_eq_triangle(x, y, a):
+def reverse_sierpinski(x, y, a):
 
     topleft = x, y
     topright = x + a, y
@@ -18,13 +18,11 @@ def draw_eq_triangle(x, y, a):
 
     canvas.create_polygon(topleft, topright, bottom, fill='white', outline='black')
 
-def reverse_sierpinski(x, y, a, depth):
-    draw_eq_triangle(x, y, a)
-    if a > depth:
-        reverse_sierpinski(x, y, a/2, depth)
-        reverse_sierpinski(x + a/2, y, a/2, depth)
-        reverse_sierpinski(x + a/4, y + a/2 * h, a/2, depth)
+    if a > 10:
+        reverse_sierpinski(x, y, a/2)
+        reverse_sierpinski(x + a/2, y, a/2)
+        reverse_sierpinski(x + a/4, y + a/2 * h, a/2)
 
-reverse_sierpinski(30, 10, 600, 10)
+reverse_sierpinski(30, 10, 600)
 
 root.mainloop()

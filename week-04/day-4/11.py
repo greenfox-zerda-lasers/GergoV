@@ -5,20 +5,22 @@ from tkinter import *
 root = Tk()
 
 w = 600
+split = 3
 
 canvas = Canvas(root, width=w, height=w, bg="#FEFB00")
 canvas.pack()
 
-n = 3
-depth = 6
-steps = n**2
+def rectangle(x, y, w):
+    canvas.create_rectangle(x, y, x+w, y+w)
 
-# draw main layout
-for i in range(0, n):
-    for j in range (0, n):
-        for k in range (0, n):
-            canvas.create_rectangle((w/n)*j, (w/n)*i, (w/n)*(j+1), (w/n)*(i+1))
+def rect_fractal(x, y, w):
+    rectangle(x, y, w)
+    if w > 5:
+        rect_fractal(x, y+w/split, w/split)
+        rect_fractal(x+(w*(2/split)), y+w/split, w/split)
+        rect_fractal(x+w/split,y,w/split)
+        rect_fractal(x+w/split,y+(w*(2/split)), w/split)
 
-
+rect_fractal(0, 0, 600)
 
 mainloop()

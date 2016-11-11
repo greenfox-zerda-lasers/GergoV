@@ -3,6 +3,7 @@
 # (Regarding that Eq. triangle height (h) is: a * sqr(0,75), or a * 0,866):
 
 from tkinter import *
+import time
 
 root = Tk()
 w = 696 # height = 545
@@ -32,6 +33,10 @@ def hexagonal_fractal(x, y, a, depth):
         hexagonal_fractal(x, y + 2* 2 * a * h, a, depth)
         hexagonal_fractal(x - a, y + 2 * a * h, a, depth)
 
-hexagonal_fractal(200, 10, 300, 5)
+for i in range(1, 100):
+    hexagonal_fractal(200 - i, 10 - i, 300 + i, 5)
+    time.sleep(0.000000000001)
+
+    canvas.update()
 
 root.mainloop()

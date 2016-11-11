@@ -10,7 +10,7 @@ h = 0.866
 canvas = Canvas(root, width=w, height=545, bg="lightgray")
 canvas.pack()
 
-def draw_hexagon(x, y, a):
+def hexagonal_fractal(x, y, a):
 
     topleft = x, y
     topright = x + a, y
@@ -21,17 +21,9 @@ def draw_hexagon(x, y, a):
 
     canvas.create_polygon(topleft, topright, right, bottomright, bottomleft, left, fill='white', outline='black')
 
-def hexagonal_fractal(x, y, a, depth):
-    draw_hexagon(x, y, a)
-    if a > depth:
-        a = a/3
-        hexagonal_fractal(x, y, a, depth)
-        hexagonal_fractal(x + 2*(a), y, a, depth)
-        hexagonal_fractal(x + 3 * a, y + 2 * a * h, a, depth)
-        hexagonal_fractal(x + 2*(a), y + 2* 2 * a * h, a, depth)
-        hexagonal_fractal(x, y + 2* 2 * a * h, a, depth)
-        hexagonal_fractal(x - a, y + 2 * a * h, a, depth)
+    if a > 5:
+        hexagonal_fractal(x, y, a/3)
 
-hexagonal_fractal(200, 10, 300, 5)
+hexagonal_fractal(200, 10, 300)
 
 root.mainloop()

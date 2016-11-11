@@ -3,6 +3,7 @@
 # a * sqr(0,75), or a * 0,866
 
 from tkinter import *
+import time
 
 root = Tk()
 w = 667
@@ -24,7 +25,12 @@ def reverse_sierpinski(x, y, a, depth):
         reverse_sierpinski(x, y, a/2, depth)
         reverse_sierpinski(x + a/2, y, a/2, depth)
         reverse_sierpinski(x + a/4, y + a/2 * h, a/2, depth)
+        reverse_sierpinski(x + a*(3/8), y + (a/4 * h), a/4, depth)
 
-reverse_sierpinski(30, 10, 600, 10)
+for i in range(1, w*2, 25):
+    
+    reverse_sierpinski(w/2 - i, w/2 - i , i, 10)
+
+    canvas.update()
 
 root.mainloop()
