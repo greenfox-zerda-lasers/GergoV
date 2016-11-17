@@ -35,7 +35,7 @@ class Display:
 
     def displayCommands(self):
         print("  ****** [ Commands: ] *******")
-        print("  *  [i] Passenger get i     *")
+        print("  *  [i] Passenger get in    *")
         print("  *  [o] Passenger get out   *")
         print("  *  [u] Move elevator up    *")
         print("  *  [d] Move elevator down  *")

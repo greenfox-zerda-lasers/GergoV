@@ -61,11 +61,11 @@ class Controller():
 
     def quitGame(self):
         self.should_run = False
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("You chose to quit. Goodbye!")
 
     def drawScreen(self):
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         self.displayElevator()
         self.displayStatusPanel()
         self.displayCommandsList()
