@@ -23,6 +23,9 @@ class Controller():
     def __init__(self):
         self.model = model_elevator.Elevator()
         self.view = view_elevator.Display()
+        self.commandlist = {"u": self.elevatorUp, "d": self.elevatorDown,
+                            "i": self.addPassengers, "o": self.rmPassengers,
+                            "q": self.quitGame}
 
         # Init mainloop
         self.should_run = True
@@ -35,38 +38,47 @@ class Controller():
             self.mainLoop()
 
     def handleInput(self):
-        command = input("What do you want to do?\n")
-        self.commandlist = { "u": self.elevatorUp, "d": self.elevatorDown, "i": self.addPassengers, "o": self.rmPassengers, "q": self.quitGame }
+        command = input("  Enter command! >")
         if command in self.commandlist:
             self.commandlist[command]()
         else:
-            print("Invalid command.")
-            self.handleInput()
+            self.invalidCommand()
+
+    def invalidCommand(self):
+        self.model.setMessage("Invalid command!")
 
     def elevatorUp(self):
         self.model.setPosition(1)
-        print("Elevator Up")
 
     def elevatorDown(self):
         self.model.setPosition(-1)
-        print("Elevator Down")
 
     def addPassengers(self):
         self.model.addPeople(1)
-        print("P+")
 
     def rmPassengers(self):
-        self.model.addPeople(-1)
-        print("PI")
+        self.model.rmPeople(1)
 
     def quitGame(self):
         self.should_run = False
+        os.system('clear')
         print("You chose to quit. Goodbye!")
 
     def drawScreen(self):
         os.system('clear')
+        self.displayElevator()
+        self.displayStatusPanel()
+        self.displayCommandsList()
+
+    def displayElevator(self):
         self.view.displayElevator(self.model.getFloors(), self.model.getPosition(), self.model.getPassengers())
-        self.view.displayConsole()
+
+    def displayStatusPanel(self):
+        self.view.displayStatus(self.model.getPosition(), self.model.getPassengers(), self.model.getMessage())
+        self.model.resetMessage()
+
+    def displayCommandsList(self):
+        self.view.displayCommands()
 
 
 # Init program

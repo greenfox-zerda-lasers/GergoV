@@ -33,11 +33,19 @@ class Display:
 
         print(gfx.building_bottom)
 
-    def displayConsole(self):
+    def displayCommands(self):
+        print("  ****** [ Commands: ] *******")
+        print("  *  [i] Passenger get i     *")
+        print("  *  [o] Passenger get out   *")
+        print("  *  [u] Move elevator up    *")
+        print("  *  [d] Move elevator down  *")
+        print("  ****************************")
+
+    def displayStatus(self, floor, passengers, status_message):
         print("")
-        print("****** [ Commands: ] *******")
-        print("*  [i] Passenger get i     *")
-        print("*  [o] Passenger get out   *")
-        print("*  [u] Move elevator up    *")
-        print("*  [d] Move elevator down  *")
-        print("****************************")
+        print("  ******* [ Status: ] ********")
+        print("  * On floor: " + str(floor))
+        print("  * Passengers: " + str(passengers))
+        print("  *")
+        print("  * Status: " + str(status_message))
+        print("  *")
