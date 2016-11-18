@@ -44,12 +44,18 @@ class Control():
     # Main functions
 
     def list_todo(self):
-        f = open('data.csv', newline='')
-        reader = csv.reader(f)
-        rownum = 0
-        for row in reader:
-            rownum += 1
-            print(rownum, '-', ''.join(row))
+        f = open('data.csv', 'r', newline='')
+        reader = csv.reader(f, delimiter=',')
+
+        f.seek(0)
+        first_char = f.read(1)
+        if not first_char:
+            print(texts.list_empty)
+        else:
+            f.seek(0) # Reset reader to char 0
+            for row in reader:
+                rowcontent = ''.join(row)
+                print(reader.line_num, '-', rowcontent)
 
     def add_todo(self):
         f = open('data.csv', 'wb')

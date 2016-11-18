@@ -2,7 +2,12 @@ import csv
 
 f = open('data.csv', newline='')
 reader = csv.reader(f)
-rownum = 0
+'''
+if len(reader) == 0:
+    print('Win')
+'''
+
+print(reader.line_num)
+
 for row in reader:
-    rownum += 1
-    print(rownum, '-', ''.join(row))
+    print(reader.line_num, '-', ''.join(row))
