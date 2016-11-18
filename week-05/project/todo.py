@@ -26,7 +26,7 @@ class Control():
     def parseInput(self):
         parser = argparse.ArgumentParser()
         parser.add_argument('-l', '--list', action='store_true', help='List todo items')
-        parser.add_argument('-a', '--add', action='store_true', help='Add item')
+        parser.add_argument('-a', '--add', action='store_true', type=str, help='Add item')
         parser.add_argument('-r', '--remove', action='store_true', help='Remove item')
         parser.add_argument('-c', '--check', action='store_true', help='Mark item checked')
         args = parser.parse_args()
@@ -56,11 +56,12 @@ class Control():
             for row in reader:
                 rowcontent = ''.join(row)
                 print(reader.line_num, '-', rowcontent)
+        f.close()
 
-    def add_todo(self):
-        f = open('data.csv', 'wb')
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        writer.writerow(f)
+    def add_todo(self, item):
+        f = open('data.csv', 'a')
+        f.write(item)
+        f.close()
 
 
     def check_todo(self):
