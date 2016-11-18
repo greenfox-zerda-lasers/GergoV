@@ -16,36 +16,46 @@ Functions:
     -
 '''
 
-import texts, argparse #,data
+import texts, argparse, csv
 
 class Control():
 
     def __init__(self):
-        self.Model = Model()
-        self.View = View()
-        self.commands = {'l': self.list_todo, 'a': self.add_todo, 'c': self.check_todo, 'r': self.remove_todo}
+        self.parseInput()
 
-        self.View.print_welcome()
-
-
-    def handle_input(self):
-        command = input("Yes master?\n")
-        if command in self.commands:
-            self.commands['l']()
+    def parseInput(self):
+        parser = argparse.ArgumentParser()
+        parser.add_argument('-l', '--list', action='store_true', help='List todo items')
+        parser.add_argument('-a', '--add', action='store_true', help='Add item')
+        parser.add_argument('-r', '--remove', action='store_true', help='Remove item')
+        parser.add_argument('-c', '--check', action='store_true', help='Mark item checked')
+        args = parser.parse_args()
+        if args.list:
+            self.list_todo()
+        elif args.add:
+            print('Add item')
+        elif args.remove:
+            print('Remove item')
+        elif args.check:
+            print('Check item')
         else:
-            print(texts.input_error_notarg)
-            self.handle_input()
+            self.print_welcome()
 
     # Main functions
 
     def list_todo(self):
-        # read from file - model
-        # print list
-        pass
+        f = open('data.csv', newline='')
+        reader = csv.reader(f)
+        rownum = 0
+        for row in reader:
+            rownum += 1
+            print(rownum, '-', ''.join(row))
 
     def add_todo(self):
-        # write model
-        pass
+        f = open('data.csv', 'wb')
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        writer.writerow(f)
+
 
     def check_todo(self):
         # write model
@@ -56,11 +66,6 @@ class Control():
         pass
 
 
-class Model():
-
-    def __init__(self):
-        self.tasklist = [] # Function tests
-
     def check_storage(self):
         try:
             data = open('data.py', 'r')
@@ -68,10 +73,6 @@ class Model():
         except FileNotFoundError:
             open('data.py', 'wb')
 
-class View():
-
-    def __init__(self):
-        pass
 
     def print_welcome(self):
         print(texts.welcome)

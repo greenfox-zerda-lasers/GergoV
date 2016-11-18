@@ -5,7 +5,7 @@ Created on Wed Nov 16 15:23:17 2016
 @author: gergov
 """
 
-welcome = "\n\nPython Todo application\n=======================\n\nCommand line arguments:\n -l Lists all the tasks\n -a Adds a new task\n -r Removes a task\n -c Completes a task\n"
+welcome = "\nPython Todo application\n=======================\n\nCommand line arguments:\n -l Lists all the tasks\n -a Adds a new task\n -r Removes a task\n -c Completes a task\n"
 
 list_empty = "No todos for today! :)\n"
 
