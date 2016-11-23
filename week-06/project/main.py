@@ -17,8 +17,10 @@ class Game:
         self.model = model.GameData
         self.view = view.GameDisplay
 
-        # run stuff
-        self.view.display_area(self)
+        self.display_active_area()
+
+    def display_active_area(self):
+        self.view.display_area(self, self.model.get_area_floorplan(self))
 
 # LAUNCH GAME
 game = Game()
