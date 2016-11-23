@@ -16,7 +16,9 @@ class Game:
     def __init__(self):
         self.model = model.GameData
         self.view = view.GameDisplay
-        # instantiate model and view
-        # set ActiveArea paramteres
-        # generate level map model < get map data < generate characters
-        # instantiate ActiveArea
+
+        # run stuff
+        self.view.display_area(self)
+
+# LAUNCH GAME
+game = Game()

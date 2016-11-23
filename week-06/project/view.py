@@ -3,6 +3,7 @@ TkWanderer Game view funcions
 '''
 
 from tkinter import *
+from PIL import Image, ImageTk
 
 class GameDisplay:
 
@@ -10,21 +11,22 @@ class GameDisplay:
         pass
 
     def display_area(self):
-        pass
+        self.root = Tk()
 
-    def display_status(self):
-        pass
+        # Get tile images for measuring
+        tile_image = PhotoImage(file="./img/floor.png")
+        tile_width = tile_image.width()
 
-    def display_tile(self, tile_position):
-        position_x = tile_position[0]
-        position_y = tile_position[1]
-        # draw tile to x, y position
+        # Canvas config
+        canvas_rows = 11
+        canvas_columns = 10
 
-    def display_hero(self):
-        pass
+        canvas = Canvas(self.root, width=canvas_columns*tile_width, height=canvas_rows*tile_width)
 
-    def display_skeleton(self):
-        pass
+        # Display tiles
+        for row in range(11):
+            for column in range(10):
+                canvas.create_image(column*tile_width, row*tile_width, anchor=NW, image=tile_image)
 
-    def display_boss(self):
-        pass
+        canvas.pack()
+        mainloop()
