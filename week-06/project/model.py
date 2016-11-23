@@ -3,7 +3,7 @@ import csv
 class GameData:
 
     def __init__(self):
-        pass
+        self.get_area_floorplan()
 
     def get_area_floorplan(self):
         self.area_floorplan = []
@@ -14,3 +14,11 @@ class GameData:
                 self.area_floorplan.append(line) # becomes list of lists, each line is a list
 
         return self.area_floorplan
+
+class Hero:
+
+    def __init__(self):
+        self.hero_position = [0, 0]
+
+    def get_hero_position(self):
+        return self.hero_position
