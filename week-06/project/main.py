@@ -15,7 +15,7 @@ class Game:
 
     def __init__(self):
         self.model = model.GameData()
-        self.view = view.GameDisplay()
+        self.view = view.GameDisplay(self.model.get_area_floorplan())
         self.hero = model.Hero()
 
         self.game_flow_controller()
@@ -23,8 +23,7 @@ class Game:
     def game_flow_controller(self):
         # Init level
         #   Character generation < Model char data
-        # Launch level
-        self.init_level_display()
+        # Launch level (=tkinter loop)
         self.game_display_controller()
 
             # Starting position display
@@ -35,13 +34,8 @@ class Game:
             # Check if battle > Call battle
             # Display
 
-    def init_level_display(self):
-        self.view.create_canvas(self.model.get_area_floorplan())
-        # generate characters < model char data, model level data
-
     def game_display_controller(self):
-        self.view.display_area(self.model.get_area_floorplan())
-        self.view.display_hero(self.hero.get_hero_position())
+        self.view.display_loop()
         # display enemies
 
 
