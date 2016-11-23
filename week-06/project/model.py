@@ -22,3 +22,7 @@ class Hero:
 
     def get_hero_position(self):
         return self.hero_position
+
+    def set_hero_postion(self, move_direction):
+        if move_direction == 'down':
+            self.hero_position[1] += 1

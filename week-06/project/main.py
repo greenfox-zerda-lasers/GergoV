@@ -35,7 +35,12 @@ class Game:
 
     def game_display_level_phase(self):
         self.view.display_loop(self.hero.get_hero_position())
-        # display enemies
+        # TODO: Why can't make separate view functions for game objects? (Map, Hero, Enemies)
+        # TODO: display enemies
+
+    def move_hero_down(self):
+        self.hero.set_hero_postion('down')
+
 
 # LAUNCH GAME
 game = Game()

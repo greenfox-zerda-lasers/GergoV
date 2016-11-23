@@ -16,6 +16,10 @@ class GameDisplay:
         self.canvas = Canvas(self.root, width=self.canvas_dimensions[1]*self.tile_width,       height=self.canvas_dimensions[0]*self.tile_width)
         self.canvas.pack()
 
+    def key_move_down(self, event):
+        # TODO: check event.keysym; move this to controller
+        pass
+
     def display_loop(self, hero_position):
 
         # Display background:
@@ -30,5 +34,8 @@ class GameDisplay:
         # Display hero:
         hero_image = PhotoImage(file='./img/hero-down.png')
         self.canvas.create_image(hero_position[0], hero_position[1], anchor=NW, image=hero_image)
+
+        # Listen keyboard input
+        # TODO: self.root.bind('<KeyPress>', self.key_move_down) - bind this to root in control
 
         self.root.mainloop()
