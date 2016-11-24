@@ -41,7 +41,7 @@ class Game:
         self.area_floorplan = self.model.get_area_floorplan()
         self.valid_character_positions = self.model.get_valid_character_positions()
 
-        self.generate_enemies()
+        self.generate_enemies() # Enemy stats, starting pos. generated, objects instantiated
 
         self.view = view.LevelDisplay(self.area_dimensions)
         self.hero = model.Hero()
@@ -54,11 +54,10 @@ class Game:
         enemy_start_positions = []
 
         for i in range(number_of_enemies):
-            #position_index = random.randrange(len(self.valid_character_positions)-3) # Pick random pos from valid (w safety buffer - avoid out of range)
-            # position = self.valid_floor_positions[position_index] # Set position there
-            position = [2+i, 2+i]
-            #if position in enemy_start_positions or position == [0, 0]: # Check if not taken,
-            #     position = self.valid_floor_positions[position_index + 2] # if so, pick position two indexes further
+            position_index = random.randrange(len(self.valid_character_positions)-3) # Pick random pos from valid (w safety buffer - avoid out of range)
+            position = self.valid_character_positions[position_index] # Set position there
+            if position in enemy_start_positions or position == [0, 0]: # Check if not taken,
+                 position = self.valid_floor_positions[position_index + 2] # if so, pick position two indexes further
             enemy_start_positions.append(position) # add position to list
 
             hp = 2 * self.current_level * random.randrange(1, 7)
@@ -72,18 +71,18 @@ class Game:
                 hp += random.randrange(1, 7)
                 dp += random.randrange(1, 7)/2
                 sp += self.current_level
-                self.enemies[i] = model.Boss(enemy_start_positions[i], hp, dp, sp)
+                self.enemies[i] = model.Boss('Boss', enemy_start_positions[i], hp, dp, sp)
 
             else:
                 if i == keyholder:
                     has_key = True
                 else:
                     has_key = False
-                self.enemies[i] = model.Skeleton(enemy_start_positions[i], hp, dp, sp, has_key)
+                self.enemies[i] = model.Skeleton('Skeleton', enemy_start_positions[i], hp, dp, sp, has_key)
 
-            print('Valid positions:', self.valid_character_positions)
-            print(self.enemies[i])
-            print('Enemy stats:\nPOS:', position, '\nhp', hp, '\ndp:', dp, '\nsp:', sp)
+            # NOTE: Enemy generator debug aid:
+            # print(self.enemies[i])
+            # print('Enemy stats:\nPOS:', position, '\nhp', hp, '\ndp:', dp, '\nsp:', sp)
 
 
 # *** [ Game View Controller Functions ] ***
@@ -92,7 +91,10 @@ class Game:
         self.view.clear_canvas() # NOTE: Works without cleaning too. Maybe this spares memory?
         self.view.display_area(self.area_dimensions, self.area_floorplan)
         self.view.display_hero(self.hero.get_hero_position(), self.hero_heading)
-        # TODO: display enemies
+
+        self.view.display_enemies('Boss', self.enemies[0].get_boss_position())
+        for i in range(1, len(self.enemies)):
+            self.view.display_enemies('Skeleton', self.enemies[i].get_skeleton_position())
 
 # *** [ Game keyboard IO] ***
 

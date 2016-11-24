@@ -4,7 +4,6 @@ class AreaMap:
 
     def __init__(self):
         self.area_floorplan = []
-        self.valid_character_positions = []
 
         with open('./mapdata.csv', 'r', newline='') as f:
             f_reader=csv.reader(f, delimiter=',')
@@ -18,9 +17,8 @@ class AreaMap:
 
         for row in range(self.area_dimensions[0]):
             for column in range(self.area_dimensions[1]):
-                if self.area_floorplan[row][column] == 0:
-                    self.valid_character_positions.append([column, row])
-
+                if int(self.area_floorplan[row][column]) == 0:
+                    self.valid_character_positions += [[column, row]]
 
     def get_area_floorplan(self):
         return self.area_floorplan
@@ -45,17 +43,31 @@ class Hero:
 
 class Boss:
 
-    def __init__(self, position, hp, dp, sp):
+    def __init__(self, enemy_type, position, hp, dp, sp):
+        self.enemy_type = enemy_type
         self.position = position
         self.hp = hp
         self.dp = dp
         self.sp = sp
 
+    def get_boss_position(self):
+        return self.position
+
+    def get_enemy_type(self):
+        return self.enemy_type
+
 class Skeleton:
 
-    def __init__(self, position, hp, dp, sp, has_key):
+    def __init__(self, enemy_type, position, hp, dp, sp, has_key):
+        self.enemy_type = enemy_type
         self.position = position
         self.hp = hp
         self.dp = dp
         self.sp = sp
         self.has_key = has_key
+
+    def get_skeleton_position(self):
+        return self.position
+
+    def get_enemy_type(self):
+        return self.enemy_type
