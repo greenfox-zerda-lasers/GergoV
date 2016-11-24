@@ -62,7 +62,7 @@ class Game:
         if key_pressed in movement_keys:
             self.turn_and_move_hero(key_pressed)
         elif key_pressed in actions_keys:
-            print('Command:', key_pressed)
+            print('Command:', key_pressed) # NOTE: Indev
         else:
             print('Invalid command:', key_pressed) # NOTE: Indev.
 
@@ -70,23 +70,30 @@ class Game:
 
     def turn_and_move_hero(self, direction):
         self.hero_heading = direction # NOTE: Not writing back to model (hero object). Only view needs it.
-        if self.detect_collision(direction) == True:
+        if self.is_way_free(direction) == True:
             self.hero.set_hero_position(self.movement_alterations[direction])
         else:
-            print("BOOM!")
+            print("BANG!")
         self.game_phase_display()
 
-    def detect_collision(self, direction):
+    def is_way_free(self, direction):
         # All data is read from model via level init.
-        target_position = [0, 0]
+        target_position = [0, 0] # NOTE: x, y = column, row
+        map_max_x = range(self.area_dimensions[1])
+        map_max_y = range(self.area_dimensions[0])
+        # NOTE: Resolved only for easier overview and debugging
 
         target_position[0] = self.movement_alterations[direction][0] + self.hero.get_hero_position()[0]
         target_position[1] = self.movement_alterations[direction][1] + self.hero.get_hero_position()[1]
 
-        if target_position[0] in range(self.area_dimensions[0]-1) and target_position[1] in range(self.area_dimensions[1]+1):
-            return True
-        else:
-            return False
+        if target_position[0] in map_max_x and target_position[1] in map_max_y:
+            target_tile_type = int(self.area_floorplan[target_position[1]][target_position[0]])
+            # NOTE: ^IDK why it becomes str.
+            print(target_tile_type)
+            if target_tile_type < 1:
+                return True
+            else:
+                return False
 
 
 

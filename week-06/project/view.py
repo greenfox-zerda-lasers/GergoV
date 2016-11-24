@@ -31,7 +31,6 @@ class LevelDisplay:
     # *** [ Display functions in tkinter mainloop ] ***
 
     def display_area(self, area_dimensions, area_floorplan):
-        print(area_dimensions)
         select_tile_pattern_display = {'0': self.floor_image, '1': self.wall_image}
 
         for row in range(area_dimensions[0]):
@@ -48,8 +47,6 @@ class LevelDisplay:
         if heading == "Right":
             hero_heading_image = self.hero_right
         self.canvas.create_image(hero_position[0]*self.tile_width, hero_position[1]*self.tile_width, anchor=NW, image=hero_heading_image)
-        print('Hero heading:', heading) # NOTE: Test
-
 
     # TODO: display_enemies
 
