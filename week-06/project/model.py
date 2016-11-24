@@ -1,11 +1,8 @@
 import csv
 
-class GameData:
+class AreaMap:
 
     def __init__(self):
-        self.get_area_floorplan()
-
-    def get_area_floorplan(self):
         self.area_floorplan = []
 
         with open('./mapdata.csv', 'r', newline='') as f:
@@ -13,7 +10,12 @@ class GameData:
             for line in f_reader:
                 self.area_floorplan.append(line)
 
+    def get_area_floorplan(self):
         return self.area_floorplan
+
+    def get_area_dimensions(self):
+        self.area_dimensions = [len(self.area_floorplan), len(self.area_floorplan[0])]
+        return self.area_dimensions
 
 class Hero:
 
@@ -23,6 +25,6 @@ class Hero:
     def get_hero_position(self):
         return self.hero_position
 
-    def set_hero_postion(self, alteration):
+    def set_hero_position(self, alteration):
         self.hero_position[0] += alteration[0]
         self.hero_position[1] += alteration[1]

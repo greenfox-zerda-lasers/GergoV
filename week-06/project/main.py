@@ -1,8 +1,10 @@
 '''
 *** TkWanderer Game ***
+Version 1.0
 by Gergo Vamosi, alias GergoV
+https://github.com/GergoV
 
-Green Fox Academy, 2016.
+Green Fox Academy, Zerda class, Lasers group, 2016.
 '''
 
 import model
@@ -14,29 +16,36 @@ class Game:
     '''
 
     def __init__(self):
-        self.model = model.GameData()
+        self.model = model.AreaMap()
         self.hero = model.Hero()
-        self.view = view.GameDisplay(self.model.get_area_floorplan())
 
-        # *** [ Movement variables ]
+        # *** [ Movement variables, rulesets ] ***
+        # TODO: Store them better.
         self.hero_heading = 'Down'
         self.movement_alterations = {'Up':[0, -1], 'Down':[0, 1], 'Left':[-1, 0], 'Right':[1, 0]}
 
         self.game_flow_controller()
 
     def game_flow_controller(self):
-        # TODO: Init level
+        self.init_level()
 
         # *** [ TKinter Main loop: ] ***
         self.game_phase_display() # Draws everything
         self.game_keyboard_listener() # Binds kb input and executes commands
         self.view.show()
+        
+
+    def init_level(self):
+        self.area_dimensions = self.model.get_area_dimensions()
+        self.area_floorplan = self.model.get_area_floorplan()
+
+        self.view = view.LevelDisplay(self.area_dimensions)
 
 # *** [ Game View Controller Functions ] ***
 
     def game_phase_display(self):
         self.view.clear_canvas() # NOTE: Works without cleaning too. Maybe this spares memory?
-        self.view.display_area()
+        self.view.display_area(self.area_dimensions, self.area_floorplan)
         self.view.display_hero(self.hero.get_hero_position(), self.hero_heading)
         # TODO: display enemies
 
@@ -60,13 +69,15 @@ class Game:
 # *** [ Character movement ] ***
 
     def turn_and_move_hero(self, direction):
-        self.hero_heading = direction # NOTE: Not writing back to model (hero object).
-        # self.detect_collision()
-        self.hero.set_hero_postion(self.movement_alterations[direction])
+        self.hero_heading = direction # NOTE: Not writing back to model (hero object). Only view needs it.
+        # self.detect_hero_collision()
+        self.hero.set_hero_position(self.movement_alterations[direction])
         self.game_phase_display()
 
-    def detect_collision():
+    def detect_hero_collision(self, direction):
+
         pass
+
 
 
 # *** [ LAUNCH GAME ] ***
