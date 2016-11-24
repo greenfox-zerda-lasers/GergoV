@@ -33,7 +33,7 @@ class Game:
         self.game_phase_display() # Draws everything
         self.game_keyboard_listener() # Binds kb input and executes commands
         self.view.show()
-        
+
 
     def init_level(self):
         self.area_dimensions = self.model.get_area_dimensions()
@@ -70,13 +70,23 @@ class Game:
 
     def turn_and_move_hero(self, direction):
         self.hero_heading = direction # NOTE: Not writing back to model (hero object). Only view needs it.
-        # self.detect_hero_collision()
-        self.hero.set_hero_position(self.movement_alterations[direction])
+        if self.detect_collision(direction) == True:
+            self.hero.set_hero_position(self.movement_alterations[direction])
+        else:
+            print("BOOM!")
         self.game_phase_display()
 
-    def detect_hero_collision(self, direction):
+    def detect_collision(self, direction):
+        # All data is read from model via level init.
+        target_position = [0, 0]
 
-        pass
+        target_position[0] = self.movement_alterations[direction][0] + self.hero.get_hero_position()[0]
+        target_position[1] = self.movement_alterations[direction][1] + self.hero.get_hero_position()[1]
+
+        if target_position[0] in range(self.area_dimensions[0]-1) and target_position[1] in range(self.area_dimensions[1]+1):
+            return True
+        else:
+            return False
 
 
 

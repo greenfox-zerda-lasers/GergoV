@@ -15,6 +15,7 @@ class AreaMap:
 
     def get_area_dimensions(self):
         self.area_dimensions = [len(self.area_floorplan), len(self.area_floorplan[0])]
+        # NOTE to self: Number of rows, number of columns
         return self.area_dimensions
 
 class Hero:
