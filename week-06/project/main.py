@@ -10,6 +10,8 @@ Green Fox Academy, Zerda class, Lasers group, 2016.
 import model
 import view
 
+import random
+
 class Game:
     '''
     Game controller object with main game functions.
@@ -17,12 +19,12 @@ class Game:
 
     def __init__(self):
         self.model = model.AreaMap()
-        self.hero = model.Hero()
 
         # *** [ Movement variables, rulesets ] ***
         # TODO: Store them better.
         self.hero_heading = 'Down'
         self.movement_alterations = {'Up':[0, -1], 'Down':[0, 1], 'Left':[-1, 0], 'Right':[1, 0]}
+        self.current_level = 1
 
         self.game_flow_controller()
 
@@ -34,12 +36,53 @@ class Game:
         self.game_keyboard_listener() # Binds kb input and executes commands
         self.view.show()
 
-
     def init_level(self):
         self.area_dimensions = self.model.get_area_dimensions()
         self.area_floorplan = self.model.get_area_floorplan()
+        self.valid_character_positions = self.model.get_valid_character_positions()
 
         self.view = view.LevelDisplay(self.area_dimensions)
+
+        # Enemy generation
+
+        self.enemies = {}
+
+        number_of_enemies = random.randrange(3, 6)
+        enemy_start_positions = []
+
+        for i in range(number_of_enemies):
+            #position_index = random.randrange(len(self.valid_character_positions)-3) # Pick random pos from valid (w safety buffer - avoid out of range)
+            print('Valid positions:',self.valid_character_positions)
+            # position = self.valid_floor_positions[position_index] # Set position there
+            position = [2, 2]
+            #if position in enemy_start_positions or position == [0, 0]: # Check if not taken,
+            #     position = self.valid_floor_positions[position_index + 2] # if so, pick position two indexes further
+            enemy_start_positions.append(position) # add position to list
+
+            hp = 2 * self.current_level * random.randrange(1, 7)
+            dp = self.current_level/2 * random.randrange(1, 7)
+            sp = self.current_level * random.randrange(1, 7)
+
+            keyholder = random.randrange(2, number_of_enemies+1)
+
+            # Instantiate enemies, Boss first
+            if i == 0: # If boss, apply stat modifiers
+                hp += random.randrange(1, 7)
+                dp += random.randrange(1, 7)/2
+                sp += self.current_level
+                self.enemies[i] = model.Boss(enemy_start_positions[i], hp, dp, sp)
+
+            else:
+                if i == keyholder:
+                    has_key = True
+                else:
+                    has_key = False
+                self.enemies[i] = model.Skeleton(enemy_start_positions[i], hp, dp, sp, has_key)
+
+            print(self.enemies[i])
+            print('Enemy stats:\nPOS:', position, '\nhp', hp, '\ndp:', dp, '\nsp:', sp)
+
+        self.hero = model.Hero()
 
 # *** [ Game View Controller Functions ] ***
 
