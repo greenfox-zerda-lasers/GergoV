@@ -18,6 +18,8 @@ class Game:
         self.hero = model.Hero()
         self.view = view.GameDisplay(self.model.get_area_floorplan())
 
+        self.hero_heading = 'Down'
+
         self.game_flow_controller()
 
     def game_flow_controller(self):
@@ -31,9 +33,9 @@ class Game:
 # *** [ Game View Controller Functions ] ***
 
     def game_phase_display(self):
-        self.view.clear_canvas()
+        self.view.clear_canvas() # NOTE: Works without cleaning too. Maybe this spares memory?
         self.view.display_area()
-        self.view.display_hero(self.hero.get_hero_position(), )
+        self.view.display_hero(self.hero.get_hero_position(), self.hero_heading)
         # TODO: display enemies
 
 # *** [ Game keyboard IO] ***
@@ -45,17 +47,20 @@ class Game:
     def game_command_interpreter(self, event):
         key_pressed = event.keysym
         movement_keys = ['Up', 'Down', 'Left', 'Right']
-        actions_keys = ['Space', 'q']
+        actions_keys = ['space', 'q']
         if key_pressed in movement_keys:
             self.move_hero(key_pressed)
         elif key_pressed in actions_keys:
             print('Command:', key_pressed)
         else:
-            print('Invalid command!')
+            print('Invalid command:', key_pressed) # NOTE: Indev.
+
+# *** [ Character movement ] ***
 
     def move_hero(self, direction):
+        self.hero_heading = direction # NOTE: Not writing back to model (hero object).
         self.hero.set_hero_postion(direction)
-        self.game_phase_display() # refresh screen
+        self.game_phase_display()
 
-# LAUNCH GAME
+# *** [ LAUNCH GAME ] ***
 main = Game()
