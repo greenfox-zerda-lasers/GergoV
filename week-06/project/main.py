@@ -18,7 +18,9 @@ class Game:
         self.hero = model.Hero()
         self.view = view.GameDisplay(self.model.get_area_floorplan())
 
+        # *** [ Movement variables ]
         self.hero_heading = 'Down'
+        self.movement_alterations = {'Up':[0, -1], 'Down':[0, 1], 'Left':[-1, 0], 'Right':[1, 0]}
 
         self.game_flow_controller()
 
@@ -49,7 +51,7 @@ class Game:
         movement_keys = ['Up', 'Down', 'Left', 'Right']
         actions_keys = ['space', 'q']
         if key_pressed in movement_keys:
-            self.move_hero(key_pressed)
+            self.turn_and_move_hero(key_pressed)
         elif key_pressed in actions_keys:
             print('Command:', key_pressed)
         else:
@@ -57,10 +59,15 @@ class Game:
 
 # *** [ Character movement ] ***
 
-    def move_hero(self, direction):
+    def turn_and_move_hero(self, direction):
         self.hero_heading = direction # NOTE: Not writing back to model (hero object).
-        self.hero.set_hero_postion(direction)
+        # self.detect_collision()
+        self.hero.set_hero_postion(self.movement_alterations[direction])
         self.game_phase_display()
+
+    def detect_collision():
+        pass
+
 
 # *** [ LAUNCH GAME ] ***
 main = Game()

@@ -23,16 +23,6 @@ class Hero:
     def get_hero_position(self):
         return self.hero_position
 
-    def set_hero_postion(self, move_direction):
-        if move_direction == 'Down':
-            self.hero_position[1] += 1
-            print('New hero pos is:',self.hero_position)
-        if move_direction == 'Up':
-            self.hero_position[1] -= 1
-            print('New hero pos is:',self.hero_position)
-        if move_direction == 'Right':
-            self.hero_position[0] += 1
-            print('New hero pos is:',self.hero_position)
-        if move_direction == 'Left':
-            self.hero_position[0] -= 1
-            print('New hero pos is:',self.hero_position)
+    def set_hero_postion(self, alteration):
+        self.hero_position[0] += alteration[0]
+        self.hero_position[1] += alteration[1]
