@@ -11,7 +11,7 @@ class GameData:
         with open('./mapdata.csv', 'r', newline='') as f:
             f_reader=csv.reader(f, delimiter=',')
             for line in f_reader:
-                self.area_floorplan.append(line) # becomes list of lists, each line is a list
+                self.area_floorplan.append(line)
 
         return self.area_floorplan
 
@@ -26,4 +26,6 @@ class Hero:
     def set_hero_postion(self, move_direction):
         if move_direction == 'Down':
             self.hero_position[1] += 1
-        print(self.hero_position)
+            print('New hero pos is:',self.hero_position)
+        else:
+            print('Invalid command!') # NOTE: Test.
