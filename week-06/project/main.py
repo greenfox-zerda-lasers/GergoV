@@ -41,10 +41,13 @@ class Game:
         self.area_floorplan = self.model.get_area_floorplan()
         self.valid_character_positions = self.model.get_valid_character_positions()
 
+        self.generate_enemies()
+
         self.view = view.LevelDisplay(self.area_dimensions)
+        self.hero = model.Hero()
 
-        # Enemy generation
 
+    def generate_enemies(self):
         self.enemies = {}
 
         number_of_enemies = random.randrange(3, 6)
@@ -52,9 +55,8 @@ class Game:
 
         for i in range(number_of_enemies):
             #position_index = random.randrange(len(self.valid_character_positions)-3) # Pick random pos from valid (w safety buffer - avoid out of range)
-            print('Valid positions:',self.valid_character_positions)
             # position = self.valid_floor_positions[position_index] # Set position there
-            position = [2, 2]
+            position = [2+i, 2+i]
             #if position in enemy_start_positions or position == [0, 0]: # Check if not taken,
             #     position = self.valid_floor_positions[position_index + 2] # if so, pick position two indexes further
             enemy_start_positions.append(position) # add position to list
@@ -79,10 +81,10 @@ class Game:
                     has_key = False
                 self.enemies[i] = model.Skeleton(enemy_start_positions[i], hp, dp, sp, has_key)
 
+            print('Valid positions:', self.valid_character_positions)
             print(self.enemies[i])
             print('Enemy stats:\nPOS:', position, '\nhp', hp, '\ndp:', dp, '\nsp:', sp)
 
-        self.hero = model.Hero()
 
 # *** [ Game View Controller Functions ] ***
 
