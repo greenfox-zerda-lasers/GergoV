@@ -33,6 +33,11 @@ class Hero:
 
     def __init__(self):
         self.hero_position = [0, 0]
+        self.hero_level = 1
+        self.max_hp = 10
+        self.hp = 10
+        self.dp = 6
+        self.sp = 3
 
     def get_hero_position(self):
         return self.hero_position
@@ -40,6 +45,10 @@ class Hero:
     def set_hero_position(self, alteration):
         self.hero_position[0] += alteration[0]
         self.hero_position[1] += alteration[1]
+
+    def get_hero_stats(self):
+        stats_output = [self.hero_level, self.max_hp, self.hp, self.dp, self.sp]
+        return stats_output
 
 class Boss:
 
@@ -56,6 +65,10 @@ class Boss:
     def get_enemy_type(self):
         return self.enemy_type
 
+    def get_enemy_stats(self):
+        stats_output = [self.hp, self.dp, self.sp]
+        return stats_output
+
 class Skeleton:
 
     def __init__(self, enemy_type, position, hp, dp, sp, has_key):
@@ -71,3 +84,7 @@ class Skeleton:
 
     def get_enemy_type(self):
         return self.enemy_type
+
+    def get_enemy_stats(self):
+        stats_output = [self.hp, self.dp, self.sp]
+        return stats_output

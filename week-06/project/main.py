@@ -25,6 +25,7 @@ class Game:
         self.hero_heading = 'Down'
         self.movement_alterations = {'Up':[0, -1], 'Down':[0, 1], 'Left':[-1, 0], 'Right':[1, 0]}
         self.current_level = 1
+        self.status_message = '-'
 
         self.game_flow_controller()
 
@@ -57,7 +58,7 @@ class Game:
             position_index = random.randrange(len(self.valid_character_positions)-3) # Pick random pos from valid (w safety buffer - avoid out of range)
             position = self.valid_character_positions[position_index] # Set position there
             if position in enemy_start_positions or position == [0, 0]: # Check if not taken,
-                 position = self.valid_floor_positions[position_index + 2] # if so, pick position two indexes further
+                 position = self.valid_character_positions[position_index + 2] # if so, pick position two indexes further
             enemy_start_positions.append(position) # add position to list
 
             hp = 2 * self.current_level * random.randrange(1, 7)
@@ -88,13 +89,16 @@ class Game:
 # *** [ Game View Controller Functions ] ***
 
     def game_phase_display(self):
-        self.view.clear_canvas() # NOTE: Works without cleaning too. Maybe this spares memory?
+        self.view.clear_display() # NOTE: Works without cleaning too. Maybe this spares memory?
         self.view.display_area(self.area_dimensions, self.area_floorplan)
         self.view.display_hero(self.hero.get_hero_position(), self.hero_heading)
 
         self.view.display_enemies('Boss', self.enemies[0].get_boss_position())
         for i in range(1, len(self.enemies)):
             self.view.display_enemies('Skeleton', self.enemies[i].get_skeleton_position())
+
+        self.view.dislay_stats(self.hero.get_hero_stats(), [0, 0, 0], self.status_message)
+
 
 # *** [ Game keyboard IO] ***
 
@@ -119,8 +123,9 @@ class Game:
         self.hero_heading = direction # NOTE: Not writing back to model (hero object). Only view needs it.
         if self.is_way_free(direction) == True:
             self.hero.set_hero_position(self.movement_alterations[direction])
+            self.status_message = '-'
         else:
-            print("BANG!")
+            self.status_message = 'BANG!'
         self.game_phase_display()
 
     def is_way_free(self, direction):

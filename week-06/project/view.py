@@ -11,10 +11,15 @@ class LevelDisplay:
 
         # Init area variables:
         self.tile_width = 72
+        self.status_area_height = 20 # NOTE: If below game area. Not implemented.
+        self.status_area_width = 160
+        self.canvas_width = area_dimensions[1]*self.tile_width+self.status_area_width
+        self.canvas_height = area_dimensions[0]*self.tile_width
 
         # Init canvas:
         self.root = Tk()
-        self.canvas = Canvas(self.root, width=area_dimensions[1]*self.tile_width,       height=area_dimensions[0]*self.tile_width)
+        self.root.title("*** TkWanderer Game ***")
+        self.canvas = Canvas(self.root, width=self.canvas_width, height=self.canvas_height)
         self.canvas.pack()
 
         # Init imagery:
@@ -59,14 +64,23 @@ class LevelDisplay:
 
         self.canvas.create_image(enemy_position[0]*self.tile_width, enemy_position[1]*self.tile_width, anchor=NW, image=enemy_view_image)
 
+    def dislay_stats(self, hero_stats, enemy_stats, action):
+
+        hero_stats_display = ' *** STATS ***\n\n Hero (Level {})\n\n | HP: {}/{} \n | DP: {} \n | SP: {}'.format(hero_stats[0], hero_stats[1], hero_stats[2], hero_stats[3], hero_stats[4])
+
+        self.canvas.create_text(self.canvas_width-self.status_area_width, 0, text=hero_stats_display, anchor=NW, fill='white', width=self.status_area_width, font='14')
+
+        enemy_stats_display = ' *** ENEMY ***\n\n | HP: {} \n | DP: {} \n | SP: {}'.format(enemy_stats[0], enemy_stats[1], enemy_stats[2])
+
+        self.canvas.create_text(self.canvas_width-self.status_area_width, 160, text=enemy_stats_display, anchor=NW, fill='white', width=self.status_area_width, font='14')
+
+        action_display = ' *** ACTION ***\n\n' + ' ' + action
+        self.canvas.create_text(self.canvas_width-self.status_area_width, 280, text=action_display, anchor=NW, fill='white', width=self.status_area_width, font='14')
 
 
     # *** [ View control funcions ] ***
-    def clear_canvas(self):
+    def clear_display(self):
         self.canvas.delete('all')
-
-    def canvas_update(self):
-        self.canvas.update()
 
     def show(self):
         self.root.mainloop()

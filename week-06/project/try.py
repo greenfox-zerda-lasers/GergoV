@@ -1,27 +1,25 @@
-import csv
+from tkinter import *
 
-class Try:
+root = Tk()
+canvas = Canvas(root, width=400, height=300, bg='red')
+canvas.pack()
 
-    def __init__(self):
-        self.area_floorplan = []
-
-        with open('./mapdata.csv', 'r', newline='') as f:
-            f_reader=csv.reader(f, delimiter=',')
-            for line in f_reader:
-                self.area_floorplan.append(line)
-
-        self.area_dimensions = [len(self.area_floorplan), len(self.area_floorplan[0])]
-        # NOTE: rows, columns (y, x!)
-
-        self.valid_character_positions = []
-
-        for row in range(self.area_dimensions[0]):
-            for column in range(self.area_dimensions[1]):
-                if int(self.area_floorplan[row][column]) == 0:
-                    self.valid_character_positions += [[column, row]]
-
-        print(self.valid_character_positions)
+message = 'Hajdihó!'
 
 
+def szovegeles(message):
+    text = Text(root, width=70, height=2, bg='white', fg='black', font='Helvetica 14', wrap=WORD)
+    text.insert(INSERT, message + '\nPress Space!')
+    text.pack()
 
-runthis = Try()
+    #text.update_idletasks()
+
+    root.bind('<Key>', message_updater)
+
+def message_updater(event):
+    text.destroy()
+    message = 'Ezt a gombot nyomtad meg, nyomi: ' + str(event.keysym)
+    szovegeles(message)
+
+szovegeles(message)
+root.mainloop()
