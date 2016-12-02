@@ -4,6 +4,8 @@ Version 1.0
 by Gergo Vamosi, alias GergoV
 https://github.com/GergoV
 
+Milestone 3.: Map rendered, character moves, enemies generated and appear + status display 0.1
+
 Green Fox Academy, Zerda class, Lasers group, 2016.
 '''
 
@@ -119,7 +121,7 @@ class Game:
 
 # *** [ Character movement ] ***
 
-    def turn_and_move_hero(self, direction):    
+    def turn_and_move_hero(self, direction):
         self.hero_heading = direction # NOTE: Not writing back to model (hero object). Only view needs it.
         if self.is_way_free(direction) == True:
             self.hero.set_hero_position(self.movement_alterations[direction])
@@ -129,11 +131,9 @@ class Game:
         self.game_phase_display()
 
     def is_way_free(self, direction):
-        # All data is read from model via level init.
         target_position = [0, 0] # NOTE: x, y = column, row
         map_max_x = range(self.area_dimensions[1])
         map_max_y = range(self.area_dimensions[0])
-        # NOTE: Resolved only for easier overview and debugging
 
         target_position[0] = self.movement_alterations[direction][0] + self.hero.get_hero_position()[0]
         target_position[1] = self.movement_alterations[direction][1] + self.hero.get_hero_position()[1]
