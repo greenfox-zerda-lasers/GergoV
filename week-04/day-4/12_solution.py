@@ -2,7 +2,7 @@
 # [1, 2, [3, 4], 1, [1, [2, 4]]]
 # by CT
 
-listácska = [1, 2, [3, 4], 1, [1, [2, 4]]]
+example = [1, 2, [3, 4], 1, [1, [2, 4]]]
 
 
 def list_add(a):
@@ -15,4 +15,4 @@ def list_add(a):
         return a[0] + list_add(a[1:])
 
 
-print(list_add(listácska))˛rrfzt ztlkl
+print(list_add(example))
