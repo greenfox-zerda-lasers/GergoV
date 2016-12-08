@@ -5,8 +5,11 @@
   <title>Workshop: Bookmarklets</title>
 </head>
 <body>
-  <a href="javascript:alert('nothing here yet!');">
+  <a href="javascript:replaceH1s()">
     Bookmarklet 1
+  </a>
+  <a href="javascript:document.querySelectorAll('h1').forEach(function(e) { e.textContent = 'BLAH!'; });">
+    Bookmarklet 2 - universal
   </a>
   <h1>Antoine de Saint-Exupery's 110th Birthday</h1>
   <p>
