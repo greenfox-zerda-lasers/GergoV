@@ -1,0 +1,55 @@
+body {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+main {
+  width: 80%;
+  height: 70%;
+  background-color: tomato;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+}
+.image-shown {
+  /* the image viewer */
+  background-color: brown;
+  background-image: url('./images/joshua-tree-national-park-74399_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  flex-grow: 10;
+  display: flex;
+  align-items: flex-end;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.side-nav {
+  flex-grow: 1;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  width: 80%;
+  height: 15%;
+  background-color: teal;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.thumbnail {
+  background-color: silver;
+  width: 10%;
+  height: 80%;
+}

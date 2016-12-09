@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>*** le Box interactive ***</title>
+  <style>
+    .box {
+      background: tomato;
+      width: 100px;
+      height: 100px;
+      transition: all 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">Yo.</div>
+  <script>
+    var box = document.querySelector('.box');
+    box.addEventListener('click', toggleBoxSize);
+    function toggleBoxSize () {
+      if (this.style.width == '100px') {
+        this.style.width = '200px';
+        this.style.height = '200px';
+      } else {
+        this.style.width = '100px';
+        this.style.height = '100px';
+      };
+    };
+
+  </script>
+</body>
+</html>
