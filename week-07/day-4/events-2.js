@@ -1,3 +1,5 @@
+'use strict';
+
 var itemList = document.querySelectorAll('li');
 var result = document.querySelector('p');
 

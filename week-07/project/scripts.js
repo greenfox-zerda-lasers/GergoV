@@ -1,3 +1,5 @@
+'use strict';
+
 var imageCache = [
   {
     url: 'joshua-tree-national-park-74399_1280.jpg',
@@ -38,21 +40,30 @@ var imageCache = [
 
 function getImageCount () { return imageCache.length; };
 
-var mainImage = document.querySelector('.image-shown');
-var mainImageUrl = mainImage.style.backgroundImage;
+var mainImage = document.querySelectorAll('.main-image');
+var mainImageUrl = mainImage[0].style.backgroundImage;
 
 var button = document.querySelectorAll('.side-nav-button');
 
 var thumbsBar = document.querySelector('.image-thumbnail-bar');
 
 function generateThumbs() {
-  imageCache.forEach(function(e) {
+  imageCache.forEach(function(e, i) {
     var newThumb = document.createElement('div')
     newThumb.setAttribute('class', 'thumbnail');
-    newThumb.style.backgroundImage = "url('./images/" + e.url + "');";
-    // insert img
+    newThumb.setAttribute('thumb-index', i);
+    var thumbImgValue = 'background-image: url(./images/' + e.url + ')';
+    newThumb.setAttribute('style', thumbImgValue);
     thumbsBar.appendChild(newThumb);
+    newThumb.addEventListener('click', clickThumb);
   });
+};
+
+function clickThumb() {
+  var clickedThumbIndex = this.getAttribute('thumb-index');
+  window.alert('You clicked thumb ' + clickedThumbIndex);
+  //var mainImageToThis = imageCache[clickedThumbIndex][url];
+  //mainImage[0].style.backgroundImage = './images/' + mainImageToThis;
 };
 
 generateThumbs();

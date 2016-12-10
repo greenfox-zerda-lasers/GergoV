@@ -1,5 +1,6 @@
 body {
-  background-color: #f4f4f4;
+
+  background: linear-gradient(135deg, #c5c5c5, #f4f4f4, #f4f4f4 60%, #c5c5c5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,16 +11,14 @@ body {
 main {
   width: 80%;
   height: 70%;
-  background-color: tomato;
 
   display: flex;
   align-items: stretch;
   justify-content: space-around;
 }
 
-.image-shown {
+.main-image {
   /* the image viewer */
-  background-color: brown;
   background-image: url('./images/joshua-tree-national-park-74399_1280.jpg');
   background-size: cover;
   background-position: center;
@@ -58,7 +57,7 @@ nav {
   border: 1px dotted black;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;;
 }
 
 .image-thumbnail-bar {
@@ -66,9 +65,10 @@ nav {
 }
 
 .thumbnail {
-  background-color: silver;
   background-image: url('./images/joshua-tree-national-park-74399_1280.jpg');
   background-size: cover;
-  width: 10%;
-  height: 80%;
+  width: 44px;
+  height: 44px;
+
+  margin: 4px;
 }

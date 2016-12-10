@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			background: tomato;
+			width: 100px;
+			height: 100px;
+			transition: all 1s ease;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="gt4wF" data-image-id="1"></div>
+	<script>
+		// Read
+		var box = document.querySelector('.box')
+		box.addEventListener('click',function (e) {
+			console.log(this.dataset.imageId)
+		})
+
+		// Write
+		var x = document.createElement('div')
+		x.dataset.test = 'hello'
+		document.body.appendChild(x)
+	</script>
+</body>
+</html>

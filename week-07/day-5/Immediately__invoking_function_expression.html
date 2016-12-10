@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,html{margin:0;}
+		.box {
+			background: tomato;
+			width: 100px;
+			height: 100px;
+			transition: all 1s ease;
+			overflow: hidden;
+			padding: 10px;
+			margin: 1px;
+		}
+		.stuff {
+			height: 1000px;
+			background: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<script>
+		var box = document.querySelectorAll('.box')
+
+		for (var i = 0; i < box.length; i++) {
+			box[i].addEventListener('click', (function (e) {
+					return function(){
+						alert(e);
+					}
+				})(i)
+			);
+		}
+	</script>
+</body>
+</html>
