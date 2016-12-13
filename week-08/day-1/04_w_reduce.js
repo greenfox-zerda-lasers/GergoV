@@ -70,11 +70,9 @@ Carrier.prototype.fill = function() {
   if (ammoNeeded > this.ammoStored) {
     throw new AmmoError();
   } else {
-    this.aircrafts.forEach(function(e) {
-      remainingAmmo = e.fill(this.ammoStored);
-      console.log('Aircraft ' + e.type + ' refilled, remaining ammo: ' + remainingAmmo + '\n');
-      this.ammoStored = remainingAmmo;
-    }, this);
+    this.aircrafts.reduce(function(a, e) {
+      return e.fill(a); // returns remainingAmmo supposedly;
+    }, this.ammoStored);
   };
 };
 
