@@ -1,0 +1,23 @@
+<html>
+// set up a setInterval loop with 1.5 second delays<br/>
+// - log the mouse coordinates on each cal
+<script>
+  var pointerX;
+  var pointerY;
+  document.onmousemove = function(e){
+    pointerX = e.pageX;
+    pointerY = e.pageY;
+  };
+  function intervals () {
+    setTimeout(checkPointer, 1500);
+  };
+  function checkPointer(){
+    console.log("Pointer is at: " + pointerX + ", " + pointerY);
+    intervals();
+  };
+  document.onclick = function(e) {
+    console.log('Clicked!');
+  };
+  intervals();
+</script>
+</html>

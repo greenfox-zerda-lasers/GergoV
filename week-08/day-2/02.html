@@ -1,0 +1,22 @@
+
+<!-- Create a function that starts a setTimeout with a 3 second delay.
+Create a button with an event listener that can cancel the setTimeout -->
+
+<!DOCTYPE html>
+<html>
+<button>Stop timer</button>
+
+<script>
+  var button = document.querySelectorAll('button');
+  var x = setTimeout(function() {
+    window.alert('Time is up!');
+  }, 3000);
+  cancelTimeout = function () {
+    clearTimeout(x);
+    this.timeoutID = undefined;
+    window.alert('Timeout cancelled!');
+  };
+  button[0].addEventListener('click', cancelTimeout);
+
+</script>
+</html>
