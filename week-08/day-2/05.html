@@ -1,0 +1,12 @@
+<html>
+  // Add a click event listener to a button and console.log its innerHTML
+  <button>PRESS ME!</button>
+
+  <script>
+    var myButton = document.querySelector('button')
+    myButton.addEventListener('click', logHTML);
+    function logHTML () {
+      console.log(this.innerHTML);
+    };
+  </script>
+</html>

@@ -29,3 +29,8 @@ You should pass a reference to a function as the first argument for setTimeout o
 
   var foo = function(){...};
   setTimeout(foo, 2000);
+
+## DOM load miújság
+
+`document.addEventListener('DOMContentLoaded', fn )`
+`window.addEventListener('load', fn )`
