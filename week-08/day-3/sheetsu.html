@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./sheetsu.css">
+    <title>*** Awesome Movies ***</title>
+
+  </head>
+
+  <body>
+  <h1>Tell me about your favourite movie!</h1>
+  <form name="movie_form" action="" method="GET">
+    <label>Title: <input type="text" name="MovieTitle" value=""></label>
+    <label>Rating: <input type="text" name="Rating" value=""></label>
+    <label>Your Username: <input type="text" name="Username" value=""></label>
+
+    <button type="button" name="button" value="Click" onClick="testResults(this.form)">Submit!</button>
+  </form>
+
+<!-- On the form: MovieTitle	Rating	Username -->
+
+  <script>
+    function testResults(form) {
+      var movieTitle = form.MovieTitle.value;
+      var movieRating = form.Rating.value;
+      var movieTitle = form.Username.value;
+      alert('Your movie is: ' + movieTitle + '\nRating: ' + movieRating);
+    };
+
+    //var form = document.querySelector('form');
+    //var data = new FormData(form);
+    // var req = new XMLHttpRequest();
+    // req.send(data);
+  </script>
+  </body>
+</html>
