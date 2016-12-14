@@ -7,6 +7,8 @@
 // You can create your own or use the built in HTML5 version:
 // https://developer.mozilla.org/en/docs/Web/HTML/Element/progress
 
+// Display progressbar first, images only when all loaded
+
 var body = document.body;
 var imageList = [
   'https://c7.staticflickr.com/8/7799/26683911430_c4662bf0ec_z.jpg',
@@ -19,17 +21,24 @@ var imageList = [
 var progressBar = document.createElement('progress');
 progressBar.setAttribute('value', 0);
 progressBar.setAttribute('max', imageList.length);
+
 body.appendChild(progressBar);
 
-
 //Load images
+var imgContainer = document.createElement('div');
+imgContainer.setAttribute('style', 'display:none');
 
-for (i in imageList) {
+imageList.forEach(function (e, i) {
   var imgToAdd = document.createElement('img');
-  imgToAdd.setAttribute('src', imageList[i]);
-  body.appendChild(imgToAdd);
+  imgToAdd.setAttribute('src', e);
   imgToAdd.addEventListener('load', function() {
-    progressBar.value += 1;
-    alert('Image ' + i + ' loaded!');
+    progressBar.setAttribute('value', i+1);
+    imgContainer.appendChild(imgToAdd);
   });
-};
+
+});
+
+body.appendChild(imgContainer);
+alert('Images loaded!');
+imgContainer.setAttribute('style', '')
+body.removeChild(progressBar);
