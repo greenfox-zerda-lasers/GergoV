@@ -29,7 +29,13 @@ function display(displayData) {
       img2Disp.setAttribute('class', 'thumbnail');
       thumbsArea.appendChild(img2Disp);
       img2Disp.addEventListener('click', function() {
-        displayGIF(imgGifURL)
+        displayGIF(imgGifURL);
+      });
+      img2Disp.addEventListener('mouseenter', function() {
+        displayHoverThumb(img2Disp, imgGifURL);
+      });
+      img2Disp.addEventListener('mouseleave', function() {
+        restoreThumb(img2Disp, imgThumbURL);
       });
   });
 };
@@ -37,4 +43,12 @@ function display(displayData) {
 function displayGIF(url) {
   var bigGif = document.getElementById('main_gif');
   bigGif.setAttribute('src', url);
+}
+
+function displayHoverThumb(trg, url) {
+  trg.setAttribute('src', url);
+}
+
+function restoreThumb(trg, url) {
+  trg.setAttribute('src', url);
 }
