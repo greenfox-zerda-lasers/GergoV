@@ -19,22 +19,56 @@ getList.onreadystatechange = initGetData;
 function initGetData() {
   if (getList.readyState === XMLHttpRequest.DONE && getList.status == 200) {
     var todoData = JSON.parse(getList.response);
-    displayData(todoData);
+    viewDisplayData(todoData);
   };
 };
 
-function displayData(data) {
-  data.forEach(function(e) {
+function viewDisplayData(data) {
+  data.forEach(function(e, i) {
     var itemToView = document.createElement('li');
-    debugger;
-    itemToView.appendChild('')
+    var todoLabel = document.createElement('label');
+    todoLabel.setAttribute('class', 'todo-item');
+    todoLabel.setAttribute('for', 'list-item-' + i);
+    var todoText = document.createElement('p');
+    todoText.textContent = e.text;
+    var removeTodo = document.createElement('input');
+    removeTodo.setAttribute('type', 'button');
+    removeTodo.setAttribute('id', 'list-item-remove');
+    var checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    checkBox.setAttribute('name', 'complete-item');
+    checkBox.setAttribute('id', 'list-item-' + i);
+    checkBox.setAttribute('checked','checked');
+    if (e.completed == false) {
+      checkBox.removeAttribute('checked','checked');
+    };
+    var spriteSpan = document.createElement('span');
+
     // NOTE: Quick view for debugging API I/O
-    // itemToView.textContent = 'ID: ' + e.id + ', ' + e.text + ', ' + e.completed;
+    itemToView.textContent = 'ID: ' + e.id + ', ' + e.text + ', ' + e.completed;
     todoList.appendChild(itemToView);
+    itemToView.appendChild(todoLabel);
+    todoLabel.appendChild(todoText);
+    todoLabel.appendChild(removeTodo);
+    todoLabel.appendChild(checkBox);
+    todoLabel.appendChild(spriteSpan);
+
   });
-  //debugger;
-  // generate elements
 };
+
+function viewAddTask() {
+  window.alert('add');
+};
+
+function viewCheckTask() {
+  window.alert('check');
+};
+
+function viewDeleteTask() {
+  windows.alert('delete');
+};
+
+// Add, Check, Remove
 
 function addNewTask(task){
   let postList = new XMLHttpRequest();
