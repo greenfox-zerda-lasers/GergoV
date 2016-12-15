@@ -9,24 +9,25 @@
   </head>
   <body>
     <main>
+    <header>
       <h1>Todos</h1>
-      <section class="submit-field">
-      <input type="text"></input>
-      <button type="submit">Add</button>
-    </section>
-      <section class="todo-list">
-        <div class="todo-item">
-          <label>Todo desc.</label>
-          <button>Remove</button>
-          <input type="checkbox" id="0" name="first">
-        </div>
-        <div class="todo-item">
-          <button>Remove</button>
-          <input type="checkbox" id="0" name="first">
-          <label>Todo desc.</label>
-        </div>
-      </section>
+    </header>
+    <label class="input-field" for="submit-todo">
+      <input type="text" name="todo-text" id="submit-todo"></input>
+      <button id="add-todo-button" type="submit">Add</button>
+    </label>
+    <ul>
+      <li>
+        <label class="todo-item" for="list-item">
+          Remember the milk
+          <input type="button" id="list-item-remove"></button>
+          <input type="checkbox" name="complete-item" id="list-item">
+          <span></span>
+        </label>
+      </li>
+    </ul>
     </main>
 
+  <script src="./todo.js"></script>
   </body>
 </html>

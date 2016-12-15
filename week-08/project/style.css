@@ -1,4 +1,4 @@
-/* Main dimensions */
+/* ___Main dimensions___ */
 body {
   background: #50E3C2;
   display: flex;
@@ -14,6 +14,9 @@ main {
   margin: 76px 0 76px;
   padding-bottom: 40px;
 
+  box-shadow: 0px 0px 5px 5px rgba(155, 155, 155, 0.4);
+  border-radius: 3px;
+
 
   display: flex;
   flex-direction: column;
@@ -21,9 +24,9 @@ main {
   align-items: center;
 }
 
-/* === Submit field styling === */
+/* ___Submit field___ */
 
-.submit-field {
+.input-field {
   display: flex;
 }
 
@@ -31,7 +34,10 @@ input[type="text"] {
   box-sizing: border-box;
   padding: 10px;
 
+
   border: 1px solid #9b9b9b;
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
   width: 355px;
   height: 57px;
   box-shadow: inset 0 0 4px #e0e0e0;
@@ -44,8 +50,11 @@ input[type="text"] {
 }
 
 button[type="submit"] {
+  cursor: pointer;
   box-sizing: border-box;
   border: 1px solid #9b9b9b;
+  border-radius: 0 3px 3px 0;
+
 
   background-color: #df69e8;
   font-family: Lato, sans-serif;
@@ -58,9 +67,10 @@ button[type="submit"]:active {
   background-color: #ad00dd;
 
 }
-/* === Todo list styling === */
 
-.todo-list {
+/* ___Todo List Element Syling___ */
+
+ul {
   padding: 5px 59px 5px 59px;
 }
 
@@ -75,38 +85,40 @@ button[type="submit"]:active {
   margin: 12px 0 12px;
 }
 
-/* === CHECKBOX FORMATTING === */
+/* ~___Checkbox Formatting__~ */
 
 :root input[type=checkbox] {
-  /* original check box are push outside the viexport */
   position: absolute;
   left: -1000em;
 }
 
-:root input[type=checkbox] + label::before {
-  content: "______";
-  width  : 36px;
-  height : 40px;
-  margin : 5px;
-  background: url("./icons.png") no-repeat 0 0;
-  background-position: 0px -56px;
-
-/* The following is used to adjust the position of
-   the check boxes on the text baseline */
-
-  vertical-align: top;
-  position: relative;
-  bottom: 2px;
+input[type=checkbox] + span {
+  cursor: pointer;
+  width: 36px;
+  height: 44px;
+  background: url('./icons.png') 0px center no-repeat;
+  background-position: 0px -49px;
 }
 
-/* Checkbox states sprite move */
-
-:root input[type=checkbox]:checked + label::before {
-  background-position: 0 0px;
+input[type=checkbox]:checked + span {
+  cursor: pointer;
+  width: 36px;
+  height: 44px;
+  background: url('./icons.png') 0px center no-repeat;
+  background-position: 0px 8px;
 }
 
 
-/* Font Styles */
+input[type=button] {
+  width: 36px;
+  height: 42px;
+  background: url('./delete.png') center no-repeat;
+  background-position: 0px 7px;
+  border: 0;
+}
+
+
+/* d___Font Styles___b */
 
 h1 {
     font-family: Lato, sans-serif;
