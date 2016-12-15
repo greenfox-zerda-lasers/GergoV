@@ -16,3 +16,5 @@ function filterOdd(list) {
 }
 
 console.log(filterOdd(numbers))
+
+module.exports = filterOdd;

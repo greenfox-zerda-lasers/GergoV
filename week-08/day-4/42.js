@@ -12,3 +12,5 @@ function calcFactorial(input) {
 
 var out = calcFactorial(5);
 console.log(out)
+
+module.exports = calcFactorial;

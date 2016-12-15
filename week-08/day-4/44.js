@@ -14,3 +14,5 @@ function myMin(input) {
 
 var out = myMin(numbers);
 console.log(out);
+
+module.exports = myMin;

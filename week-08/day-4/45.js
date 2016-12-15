@@ -15,3 +15,5 @@ function shortestName(input) {
 
 var out = shortestName(names);
 console.log(out);
+
+module.exports = shortestName;

@@ -12,3 +12,5 @@ function numAdder(nums) {
 }
 
 console.log(numAdder(numbers))
+
+module.exports = numAdder;
