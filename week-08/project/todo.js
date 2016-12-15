@@ -26,7 +26,10 @@ function initGetData() {
 function displayData(data) {
   data.forEach(function(e) {
     var itemToView = document.createElement('li');
-    itemToView.textContent = 'ID: ' + e.id + ', ' + e.text + ', ' + e.completed;
+    debugger;
+    itemToView.appendChild('')
+    // NOTE: Quick view for debugging API I/O
+    // itemToView.textContent = 'ID: ' + e.id + ', ' + e.text + ', ' + e.completed;
     todoList.appendChild(itemToView);
   });
   //debugger;
