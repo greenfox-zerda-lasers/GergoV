@@ -11,7 +11,7 @@ xhr.send(null);
 
 xhr.onreadystatechange = initData;
 
-function initData(giphyData) {
+function initData() {
   if (xhr.readyState === XMLHttpRequest.DONE) {
     var giphy = JSON.parse(xhr.response);
     // debugger; // NOTE: uncomment this to observe JSON objects
