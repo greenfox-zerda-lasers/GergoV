@@ -6,7 +6,7 @@ var inputFieldAddButton = document.getElementById('add-todo-button');
 var inputFieldElement = document.getElementById('submit-todo-field');
 
 inputFieldAddButton.addEventListener('click', function () {
-  viewAddTask(inputFieldElement.value);
+    addNewTask(inputFieldElement.value);
 });
 
 var todoList = document.querySelector('ul');
@@ -66,30 +66,39 @@ function viewDisplayData(data) {
     todoLabel.appendChild(spriteSpan);
 
     // Click listeners
+
+    // Needed to add event listeners to both label and icon (span)
+    // because without it whole
     spriteSpan.addEventListener('click', function() {
-      viewCheckTask(e.id, e.text);
+      updateTask(e.id, e.text);
     });
     todoText.addEventListener('click', function() {
-      viewCheckTask(e.id, e.text);
+      updateTask(e.id, e.text);
     });
+
+    // removal
     removeTodo.addEventListener('click', function() {
-      viewDeleteTask(e.id);
+      deleteTask(e.id);
     });
 
   });
 };
 
+/* NOTE: === DEBUG FEATURES ===
 function viewAddTask(string) {
-  console.log('add' + string);
+  // console.log('add' + string);
+
 };
 
-function viewCheckTask() {
-  console.log('check');
+function viewCheckTask(id, string) {
+  // console.log('check');
+
 };
 
 function viewDeleteTask() {
   console.log('delete');
 };
+*/
 
 // Server I/O cont. - Add, Check, Remove
 
