@@ -17,20 +17,26 @@ var todoDeleteButton = document.getElementById('list-item-remove')
 
 // Server I/O - read + View: render
 
-// "MAIN LOOP"
-let getList = new XMLHttpRequest();
-getList.open('GET', 'https://mysterious-dusk-8248.herokuapp.com/todos', true);
-getList.send(null);
-getList.onreadystatechange = initGetData;
+function getWholeList() {
 
-function initGetData() {
-  if (getList.readyState === XMLHttpRequest.DONE && getList.status == 200) {
-    var todoData = JSON.parse(getList.response);
-    renderDisplay(todoData);
+  let getList = new XMLHttpRequest();
+  getList.open('GET', 'https://mysterious-dusk-8248.herokuapp.com/todos', true);
+
+  getList.setRequestHeader("Content-type", "application/json");
+
+  getList.send(null);
+  getList.onreadystatechange = initGetData;
+
+  function initGetData() {
+    if (getList.readyState === XMLHttpRequest.DONE && getList.status == 200) {
+      var todoData = JSON.parse(getList.response);
+      renderDisplay(todoData);
+    };
   };
 };
 
 function renderDisplay(data) {
+  // todoList.innerHTML = '' // clear list
   data.forEach(function(e, i) {
     var itemToView = document.createElement('li');
 
@@ -49,16 +55,15 @@ function renderDisplay(data) {
     checkBox.setAttribute('type', 'checkbox');
     checkBox.setAttribute('name', 'complete-item');
     checkBox.setAttribute('id', 'list-item-' + i);
-    checkBox.setAttribute('checked','checked');
-    if (e.completed == false) {
+    if (e.completed === true) {
+      checkBox.setAttribute('checked', 'checked');
+    } else if (e.completed === false) {
       checkBox.removeAttribute('checked','checked');
     };
 
     var spriteSpan = document.createElement('span');
 
-    // NOTE: Quick view for debugging API I/O
-    itemToView.textContent = 'ID: ' + e.id + ', ' + e.text + ', ' + e.completed;
-
+    // append elements
     todoList.appendChild(itemToView);
     itemToView.appendChild(todoLabel);
     todoLabel.appendChild(todoText);
@@ -83,6 +88,8 @@ function renderDisplay(data) {
     });
 
   });
+  console.log('Display Rendered!')
+  console.log(data.length + ' items displayed.');
 };
 
 // *** FUNCTION DEFINITIONS ***
@@ -136,3 +143,7 @@ function changeTaskStatus(id, string, status){
     };
   };
 };
+
+
+// MAIN LOOP
+getWholeList();
