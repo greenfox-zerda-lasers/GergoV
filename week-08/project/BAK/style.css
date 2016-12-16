@@ -30,7 +30,6 @@ main {
   display: flex;
 }
 
-/* Main input field */
 input[type="text"] {
   box-sizing: border-box;
   padding: 10px;
@@ -83,22 +82,14 @@ ul {
   color: #cecece;
 
   display: flex;
-  flex-direction: row;
   margin: 12px 0 12px;
 }
 
-label > p {
-  width: 342px;
-  overflow: hidden;
-}
+/* ~___Checkbox Formatting__~ */
 
-/* ~___Checkbox___~ */
 :root input[type=checkbox] {
-  display: none;
-  /*
   position: absolute;
   left: -1000em;
-  */
 }
 
 input[type=checkbox] + span {

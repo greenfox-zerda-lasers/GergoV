@@ -7,7 +7,6 @@ var inputFieldElement = document.getElementById('submit-todo-field');
 
 inputFieldAddButton.addEventListener('click', function () {
     addNewTask(inputFieldElement.value);
-    getWholeList(); // redraw
 });
 
 var todoList = document.querySelector('ul');
@@ -37,12 +36,7 @@ function getWholeList() {
 };
 
 function renderDisplay(data) {
-  // Empty list for refresh
-  var listItemsToDelete = document.querySelectorAll('li');
-  listItemsToDelete.forEach(function(e) {
-    todoList.removeChild(e);
-  });
-
+  // todoList.innerHTML = '' // clear list
   data.forEach(function(e, i) {
     var itemToView = document.createElement('li');
 
@@ -78,26 +72,20 @@ function renderDisplay(data) {
     todoLabel.appendChild(spriteSpan);
 
     // Click listeners
-    var WrapItemForSale = [{id:e.id, text:e.text, completed:e.completed}];
 
     // Needed to add event listeners to both label and icon (span)
     // because without it whole
     spriteSpan.addEventListener('click', function() {
       changeTaskStatus(e.id, e.text, e.completed);
-      getWholeList(); // redraw
     });
     todoText.addEventListener('click', function() {
       changeTaskStatus(e.id, e.text, e.completed);
-      getWholeList(); // redraw
     });
 
     // removal
     removeTodo.addEventListener('click', function() {
-      todoList.removeChild(itemToView);
       deleteTask(e.id);
-      getWholeList(); // redraw
     });
-
 
   });
   console.log('Display Rendered!')
