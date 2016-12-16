@@ -1,15 +1,15 @@
 function updateTask(id, string){
-  let postList = new XMLHttpRequest();
-  postList.open('PUT', 'https://mysterious-dusk-8248.herokuapp.com/todos/' + id, true);
+  let xhr = new XMLHttpRequest();
+  xhr.open('PUT', 'https://mysterious-dusk-8248.herokuapp.com/todos/' + id, true);
 
-  postList.setRequestHeader("Content-type", "application/json");
+  xhr.setRequestHeader("Content-type", "application/json");
 
-  postList.send(JSON.stringify({text: string, completed: true}));
-  postList.onreadystatechange = putReady;
+  xhr.send(JSON.stringify({text: string, completed: true}));
+  xhr.onreadystatechange = putReady;
 
   function putReady(rsp) {
-    if (postList.readyState === XMLHttpRequest.DONE) {
-      console.log(JSON.parse(postList.response))
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      console.log(JSON.parse(xhr.response)) // NOTE: for debug
     };
   };
 };

@@ -94,11 +94,8 @@ label > p {
 
 /* ~___Checkbox___~ */
 :root input[type=checkbox] {
-  display: none;
-  /*
   position: absolute;
   left: -1000em;
-  */
 }
 
 input[type=checkbox] + span {
