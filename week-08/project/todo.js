@@ -1,6 +1,6 @@
 'use strict';
 
-// Main interface
+// __MAIN INTERFACE__
 
 var inputFieldAddButton = document.getElementById('add-todo-button');
 var inputFieldElement = document.getElementById('submit-todo-field');
@@ -17,6 +17,7 @@ var todoDeleteButton = document.getElementById('list-item-remove')
 
 // Server I/O - read + View: render
 
+// "MAIN LOOP"
 let getList = new XMLHttpRequest();
 getList.open('GET', 'https://mysterious-dusk-8248.herokuapp.com/todos', true);
 getList.send(null);
@@ -25,11 +26,11 @@ getList.onreadystatechange = initGetData;
 function initGetData() {
   if (getList.readyState === XMLHttpRequest.DONE && getList.status == 200) {
     var todoData = JSON.parse(getList.response);
-    viewDisplayData(todoData);
+    renderDisplay(todoData);
   };
 };
 
-function viewDisplayData(data) {
+function renderDisplay(data) {
   data.forEach(function(e, i) {
     var itemToView = document.createElement('li');
 
@@ -70,10 +71,10 @@ function viewDisplayData(data) {
     // Needed to add event listeners to both label and icon (span)
     // because without it whole
     spriteSpan.addEventListener('click', function() {
-      updateTask(e.id, e.text);
+      changeTaskStatus(e.id, e.text, e.completed);
     });
     todoText.addEventListener('click', function() {
-      updateTask(e.id, e.text);
+      changeTaskStatus(e.id, e.text, e.completed);
     });
 
     // removal
@@ -84,23 +85,7 @@ function viewDisplayData(data) {
   });
 };
 
-/* NOTE: === DEBUG FEATURES ===
-function viewAddTask(string) {
-  // console.log('add' + string);
-
-};
-
-function viewCheckTask(id, string) {
-  // console.log('check');
-
-};
-
-function viewDeleteTask() {
-  console.log('delete');
-};
-*/
-
-// Server I/O cont. - Add, Check, Remove
+// *** FUNCTION DEFINITIONS ***
 
 function addNewTask(task){
   let postList = new XMLHttpRequest();
@@ -134,14 +119,15 @@ function deleteTask(id){
   };
 };
 
-function updateTask(id, string){
-  // NOTE: Send without string - overwrites with ''
+function changeTaskStatus(id, string, status){
+  // NOTE: Must send with current string.
+
   let postList = new XMLHttpRequest();
   postList.open('PUT', 'https://mysterious-dusk-8248.herokuapp.com/todos/' + id, true);
 
   postList.setRequestHeader("Content-type", "application/json");
 
-  postList.send(JSON.stringify({text: string, completed: true}));
+  postList.send(JSON.stringify({text: string, completed: !status}));
   postList.onreadystatechange = putReady;
 
   function putReady(rsp) {
