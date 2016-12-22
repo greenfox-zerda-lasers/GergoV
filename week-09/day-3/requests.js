@@ -9,7 +9,7 @@ var con = mysql.createConnection({
     database: 'todoapp'
 });
 
-function connectToDB () {
+module.exports.connectToDB = function () {
   con.connect(function(err){
     if(err){
       console.log('Error connecting to Db');
@@ -19,14 +19,14 @@ function connectToDB () {
   });
 };
 
-function endConnection() {
+module.exports.endConnection = function () {
   con.end(function(err) {
     // Terminate connection gracefully.
   });
 };
 
 // Todo functions:
-var listTodos = function() {
+module.exports.listTodos = function() {
     con.query('SELECT * FROM todos', function(err, rows){
         if(err) {
           throw err;
@@ -36,7 +36,7 @@ var listTodos = function() {
     });
 };
 
-function createTodo(text) {
+module.exports.createTodo = function (text) {
     con.query('INSERT INTO todos (text) VALUES (?)', text, function (err, res){
         if(err) throw err;
 

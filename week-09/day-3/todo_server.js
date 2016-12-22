@@ -1,10 +1,13 @@
-// Todo app node.js server
+// Todo app node.js server - MySQL editions
 
 'use strict';
 
 var express = require('express');
 var bodyParser = require('body-parser');
+
 var sql = require('./requests.js');
+var sqlOpen = sql.connectToDB;
+var sqlClose = sql.endConnection;
 
 var app = express();
 
@@ -14,8 +17,10 @@ var urlencodedParser = bodyParser.urlencoded({ extended: true });
 // Handled HTTP requests
 
 app.get('/todos', function listAllTodos(req, res) {
+  sqlOpen();
   var todoList = sql.listTodos();
-  res.send();
+  res.send(todoList);
+  sqlClose();
 });
 
 /*

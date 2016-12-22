@@ -1,3 +1,5 @@
+// Todo app node.js server
+
 'use strict';
 
 var express = require('express');
@@ -12,13 +14,11 @@ var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 app.get('/todos', function listAllTodos(req, res) {
   res.send(myDB);
-  res.sendStatus(200); // equivalent to res.status(200).send('OK')
 });
 
 app.get('/todos/:id', function listAllTodos(req, res) {
   var id = req.params.id;
   res.send(myDB[id]);
-  res.sendStatus(200); // equivalent to res.status(200).send('OK')
 });
 
 app.use(bodyParser.json());
