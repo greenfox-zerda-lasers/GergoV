@@ -1,0 +1,131 @@
+
+/***********************
+ 
+ Just a very basic CSS
+
+ ***********************/
+
+body {
+	background: #50E3C2;
+	padding-top: 3rem;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+}
+
+h1 {
+	font-weight: 300;
+	color: #ABABAB;
+	font-size: 54px;
+	line-height: 45px;
+	margin: 0;
+	margin-bottom: 4rem;
+}
+
+.app {
+	width: 464px;
+	background: #F7F7F7;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	margin: auto;
+	padding: 4rem;
+	box-sizing: border-box;
+}
+
+	.app header {
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+/***********************
+
+Data entry form
+
+***********************/
+
+.data-entry {
+	position: relative;
+}
+
+	.data-entry button {
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 66px;
+		background: #DF69E8;
+		color: #fff;
+		border: none;
+		border-radius: 3px;
+		font-size: 1.4rem;
+		font-weight: 300;
+	}
+
+	.data-entry input {
+		padding: 1rem;
+		width: calc(100% - 66px);
+		box-shadow: 0 0 5px rgba(0,0,0,0.4) inset;
+		border-radius: 3px;
+		border: none;
+		outline: none;
+	}
+
+
+/***********************
+
+Todo items
+
+***********************/
+
+.entries {
+
+}
+
+.entries ul {
+	margin: 0;
+	padding: 0;
+	margin-top: 1rem;
+}
+
+	.entries li {
+		margin: 0;
+		list-style-type: none;
+		padding: 0.5rem 0;
+		padding-right: 66px;
+		position: relative;
+	}
+
+		.entries li.disabled span{
+			color: #D7D7D7;
+		}
+
+		.entries li span {
+			font-size: 1.5rem;
+			color: #ABABAB;
+		}
+
+	.actions {
+		width: 66px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		font-size: 2rem;
+    	text-align: center;
+	}
+
+		.actions i {
+			display: inline-block;
+		}
+
+			.actions i.trash {
+				margin-right: 1rem;
+				color: #A9ADB2;
+			}
+
+			.actions i.check {
+				color: #A9ADB2;
+			}
+
+			.actions i.checked {
+				color: #DF69E8;
+			}
+ 
