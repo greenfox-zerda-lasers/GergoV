@@ -1,0 +1,14 @@
+body {
+  background: slategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  height: 390px;
+  width: 700px;
+  display: flex;
+}
+section {
+  background: #F5F5F5;
+}
