@@ -21,7 +21,7 @@ var displayTracklist = function(tracks) {
 };
 
 var playSelectedTrack = function(trackinfo) {
-  console.log("Playing track: " + trackinfo.title);
+  console.log("Selected track: " + trackinfo.title);
   musicPlayer.src = trackinfo.src;
 }
 
@@ -34,6 +34,14 @@ function readableDuration(seconds) {
     sec = sec >= 10 ? sec : '0' + sec;
     return min + ':' + sec;
 }
+
+// MEDIA EVENT listeners: load, start, end, progress
+
+musicPlayer.addEventListener('loadstart', function() { console.log("Track loaded.") });
+musicPlayer.addEventListener('play', function() { console.log("Playing started.") });
+musicPlayer.addEventListener('ended', function() { console.log("Track finished.") });
+musicPlayer.addEventListener('progress', function() { console.log("Progress signal.") });
+musicPlayer.addEventListener('pause', function() { console.log("Track paused.") });
 
 // RUN
 
