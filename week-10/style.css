@@ -7,7 +7,6 @@ body {
 * {
   overflow: hidden;
 }
-
 .clearfix:after {
    content: ".";
    visibility: hidden;
@@ -47,6 +46,13 @@ section {
   float: right;
 }
 
+/* HEADINGS */
+
+h2, h3, h4 {
+  padding: 0;
+  margin: 0;
+}
+
 /* LISTS */
 
 .zebra {
@@ -77,10 +83,10 @@ ul, ol {
 }
 /* (List item padding reset) */
 .zebra li > * {
-  margin: 0;
+  margin: 0 0 0 2px;
 }
 .zebra li span > * {
-  margin: 0;
+  margin: 0 0 0 4px;
 }
 
 .playlist-header {
