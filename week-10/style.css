@@ -4,12 +4,24 @@ body {
   justify-content: center;
   align-items: center;
 }
+* {
+  overflow: hidden;
+}
+
+.clearfix:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
 
 main {
   height: 390px;
   width: 700px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   box-shadow: 2px 2px 4px 2px black;
 }
 section {
@@ -25,27 +37,62 @@ section {
 .display {
   display: flex;
   flex-direction: row;
-  height: 100%;
 }
 .player {
   width: 100%;
   align-self: flex-end;
 }
+
 .album-art {
   float: right;
 }
 
-.zebra li {
-  display: block;
-}
+/* LISTS */
 
+.zebra {
+  overflow-y: scroll;
+}
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.zebra li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
 .zebra li:nth-child(odd) {
   background: #EAEAEA;
 }
 .zebra li:nth-child(even) {
   background: #F5F5F5;
 }
-
 .zebra li:hover {
   background: #ABE7E5;
+}
+.zebra li > * {
+  padding: 5px;
+}
+/* (List item padding reset) */
+.zebra li > * {
+  margin: 0;
+}
+.zebra li span > * {
+  margin: 0;
+}
+
+.playlist-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-item-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
 }
