@@ -14,8 +14,13 @@ main {
 }
 section {
   background: #F5F5F5;
-  flex-grow: 1;
   padding: 10px;
+}
+.right-panel {
+  width: 364px;
+}
+.left-panel {
+  width: 336px;
 }
 .display {
   display: flex;
@@ -29,16 +34,18 @@ section {
 .album-art {
   float: right;
 }
-.zebra > * {
+
+.zebra li {
   display: block;
 }
-/* THIS: */
-.zebra > *:hover {
-  background: #ABE7E5;
-}
-.zebra:nth-child(odd) {
+
+.zebra li:nth-child(odd) {
   background: #EAEAEA;
 }
-.zebra:nth-child(even) {
+.zebra li:nth-child(even) {
   background: #F5F5F5;
+}
+
+.zebra li:hover {
+  background: #ABE7E5;
 }
