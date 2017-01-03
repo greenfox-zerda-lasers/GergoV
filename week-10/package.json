@@ -1,0 +1,14 @@
+{
+  "name": "foxplaxer",
+  "version": "1.0.0",
+  "description": "FoxPlayer JS music player with backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
+}

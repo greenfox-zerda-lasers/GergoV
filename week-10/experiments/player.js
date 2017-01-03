@@ -3,6 +3,7 @@
 var tracks = [
   {"title":"Purple_Drift", "artist":"Organoid", "length":123, "src":"./Organoid_-_09_-_Purple_Drift.mp3"},
   {"title":"Yellow Suicide", "artist":"Slow Velvet", "length":123, "src":""},
+  {"title":"Never Give Up", "artist":"Ars Sonor", "length":123, "src":"https://github.com/greenfox-academy/teaching-materials/blob/master/javascript/project-music-player/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3?raw=true"},
 ];
 
 const trackListUL = document.querySelector('ol');
