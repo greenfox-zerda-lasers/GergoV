@@ -1,20 +1,20 @@
 {
-  "name": "foxplaxer",
+  "name": "foxplayer",
   "version": "1.0.0",
-  "description": "FoxPlayer JS music player with backend",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "body-parser": "^1.15.2",
-    "supertest": "^2.0.1",
-    "tap-colorize": "^1.2.0",
-    "tape": "^4.6.3"
-  },
+  "description": "",
+  "main": "launcher.js",
   "dependencies": {
     "express": "^4.14.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node launcher.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geritwo"
+  },
+  "author": "Gergő Vámosi / geritwo",
+  "license": "ISC"
 }
