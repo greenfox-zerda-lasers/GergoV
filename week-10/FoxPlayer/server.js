@@ -17,6 +17,10 @@ var tracks = [
 var playlists = [
   { "playlist_id": 0, "name": "Favorites", "tracks": [] },
   { "playlist_id": 1, "name": "Music for coding", "tracks":[21, 412]},
+  { "playlist_id": 2, "name": "RAVE", "tracks":[21, 412]},
+  { "playlist_id": 3, "name": "Music for driving", "tracks":[21, 412]},
+  { "playlist_id": 4, "name": "ROCK", "tracks":[]},
+  { "playlist_id": 5, "name": "Bowie", "tracks":[]},
 ];
 
 
@@ -32,7 +36,8 @@ app.get('/playlists', function listAllTracks(req, res) {
 // Create playlist
 app.post('/playlists', function (req, res) {
   var playlistName = req.body.playlist;
-  // NOTE: Mocked version, no DB
+  // NOTE: Mocked version, no DB, accepts app/JSON post
+  // NOTE: Must create unique playlist id!!!
   playlists.push({
       "playlist_id": playlists.length,
       "name": playlistName,
@@ -43,7 +48,16 @@ app.post('/playlists', function (req, res) {
 });
 
 // Delete playslist
-app.delete('/playlists/:id', function (req, res) {
+app.delete('/playlists/:id', function(req, res) {
+  var playlistToDelete = req.params.id;
+
+  // Final function comes here:
+  var deletePlaylist = function(playlistToDelete) {
+    console.log('Playlist with ID ' + playlistToDelete + ' is to be deleted!');
+  };
+  deletePlaylist(playlistToDelete);
+
+  res.json(playlists);
   // req: playlist id
   // ! Can't delete system playlist
   // ERR: if id missing or not enum., error in JSON (why?)
@@ -51,18 +65,18 @@ app.delete('/playlists/:id', function (req, res) {
 
 // PLAYLIST tracks
 // List all tracks
-app.get('/playlist-tracks/', function (req, res) {
+app.get('/playlist-tracks/', function(req, res) {
   // no id: all tracks in root folder
   // list playlist tracks
 });
 
 // List playlist tracks
-app.get('/playlist-tracks/:playlist_id', function (req, res) {
+app.get('/playlist-tracks/:playlist_id', function(req, res) {
   // list all trakcs in playlist
 });
 
 // Add track to playlist
-app.post('/playlist-tracks/:playlist_id', function (req, res) {
+app.post('/playlist-tracks/:playlist_id', function(req, res) {
   // add track to playlist
 });
 
