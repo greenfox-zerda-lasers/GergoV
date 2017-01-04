@@ -19,14 +19,12 @@ app.get('/playlists', function (req, res) {
   res.json(playlists);
 });
 
-// Create playlist
 app.post('/playlists', function (req, res) {
   // req: playlist name
   // return: full list/only new
   res.json(playlists);
 });
 
-// Delete playslist
 app.delete('/playlists/:id', function (req, res) {
   // req: playlist id
   // ! Can't delete system playlist
@@ -34,23 +32,19 @@ app.delete('/playlists/:id', function (req, res) {
 });
 
 // PLAYLIST tracks
-// List all tracks
 app.get('/playlist-tracks/', function (req, res) {
   // no id: all tracks in root folder
   // list playlist tracks
 });
 
-// List playlist tracks
 app.get('/playlist-tracks/:playlist_id', function (req, res) {
   // list all trakcs in playlist
 });
 
-// Add track to playlist
 app.post('/playlist-tracks/:playlist_id', function (req, res) {
   // add track to playlist
 });
 
-// Delete track from playlist
 app.delete('/playlist-tracks/:playlist_id/:track_id', function (req, res) {
   // list all trakcs in playlist
   // missing or not enumerable id: JSON error
