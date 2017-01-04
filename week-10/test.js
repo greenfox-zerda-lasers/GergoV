@@ -1,12 +1,15 @@
-// GreenFox Syllabus - test.js
+// Based on GreenFox Syllabus - test.js
 
 'use strict';
 
 var test = require('tape');
 var request = require('supertest');
+var colorize = require('tap-colorize')
+
 var app = require('./server.js');
 
-test('Testing FoxPlayer backend, YO!', function (t) {
+
+('Testing FoxPlayer backend, YO!', function (t) {
   t.end();
 });
 
@@ -28,7 +31,7 @@ test('Playlist format is proper', function (t) {
     .expect('Content-Type', /json/)
     .expect(200)
     .expect(function(res) {
-      Number.isInteger(res.body.id) 
+      Number.isInteger(res.body.id)
     })
 
     .end(function (err, res) {
