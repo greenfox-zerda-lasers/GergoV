@@ -1,5 +1,10 @@
 // FoxPlayer Node.JS server
 
+// Plan:
+// Database init: parse files, update DB
+// Express server: Endpoints
+// Request handler: Database functions, modifying data and setting return values
+
 'use strict';
 
 var express = require('express');

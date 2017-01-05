@@ -4,9 +4,13 @@
   "description": "",
   "main": "launcher.js",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "musicmetadata": "^2.0.5",
+    "parse-filepath": "^1.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
   "scripts": {
     "test": "test",
     "start": "node launcher.js"

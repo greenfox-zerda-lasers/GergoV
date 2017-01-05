@@ -17,7 +17,7 @@ connection.connect();
 app.get('/', function(req, res) {
   connection.query('SELECT * FROM house', function(err, rows, fields) {
     if (err) throw err;
-    console.log(rows);
+    res.send(rows);
   });
 });
 
