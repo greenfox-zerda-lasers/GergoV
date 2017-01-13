@@ -1,18 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="catFinder3000">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <title>*** Awesone Cat GIFS! ***</title>
+    <title>*** Awesone Cat GIFs! ***</title>
+    <script src="./app/angular.min.js"></script>
+    <script src='./app/app.js'></script>
   </head>
   <body class="flexy-base">
-    <h1>*** AWESOME CAT GIFS! ***</h1>
-    <main>
+    <h1>*** Awesome Cat GIF Finder ***</h1>
+    <main class="flexy-base">
       <section class='gif_display'>
-        <img id='main_gif' src=''>
+        <img id='main_gif' src='http://i.giphy.com/o0vwzuFwCGAFO.gif'>
       </section>
-      <section id='thumbs'></section>
+      <section class="inputfield flexy-base">
+        <label for="query">What kind of cats are you looking for?</label><input ng-model="catQuery" type="text" name="query">
+        <button>Get me felines!</button>
+        <p>You are looking for {{catQuery}} cats.</p>
+      </section>
+      <section id="thumbs">
+        <header>These are the finds:</header>
+
+      </section>
+      <div ng-controller="renderCats">
+
+        <img ng-repeat="image in imageData" src={{image.images.downsized.url}}>
+
     </main>
-    <script src='./app/app.js'></script>
+    <footer>
+      GreenFox Zerda Lasers BloodStone, 2017
+    </footer>
   </body>
 </html>
