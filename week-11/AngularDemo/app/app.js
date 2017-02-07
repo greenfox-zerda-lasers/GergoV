@@ -6,11 +6,26 @@ var catFinder3000 = angular.module('catFinder3000', []);
 
 catFinder3000.controller('renderCats', function($scope) {
 
-  // NOTE: TEST $scope.catNames = ['Paws','Peanut','Charlie','Misty','Coco'];
+  // TODO:
+  // Get query
+  // Initiate request
 
   getCatGifs("funny", 0, function(data) {
+    // NOTE: Fot debug, see data in console:
     console.log("Set: ", data);
-    $scope.imageData = data;
+
+    var catGifData = [];
+    data.forEach(function(e){
+      var catGif = {
+        "thumbStill" : e.images.fixed_height_still.url,
+        "thumb" : e.images.fixed_height.url,
+        "gif" : e.images.downsized.url,
+        "embed": e.embed_url
+      };
+      catGifData.push(catGif);
+    });
+
+    $scope.imageData = catGifData;
   });
 
 });
@@ -18,7 +33,6 @@ catFinder3000.controller('renderCats', function($scope) {
 
 // AJAX API request
 function getCatGifs(query, offset, callback) {
-  var catGifList = [];
 
   let apiReq = "http://api.giphy.com/v1/gifs/search?q=" + query + "+cat&api_key=dc6zaTOxFJmzC&limit=8&offset=" + offset
 

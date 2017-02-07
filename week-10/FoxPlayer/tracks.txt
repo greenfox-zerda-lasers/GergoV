@@ -1,9 +1,0 @@
-./_data/Sleepmakeswaves - It's Dark, It's Cold, It's Winter.mp3
-./_data/Com Truise - Cyanide Sisters.mp3
-./_data/General Fuzz - Comfort Zone.mp3
-./_data/Death Grips - Spread Eagle Cross the Block.mp3
-./_data/Best Coast - The Only Place.mp3
-./_data/Yeasayer - 2080.mp3
-./_data/Joy Wants Eternity - From Embrace To Embrace.mp3
-./_data/Nils Frahm - Said And Done.mp3
-./_data/Motorama - Ghost.mp3

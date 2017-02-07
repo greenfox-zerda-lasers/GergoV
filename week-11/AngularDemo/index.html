@@ -15,16 +15,17 @@
       </section>
       <section class="inputfield flexy-base">
         <label for="query">What kind of cats are you looking for?</label><input ng-model="catQuery" type="text" name="query">
-        <button>Get me felines!</button>
+        <button ng-click="">Get me felines!</button>
+        <button>Not for my liking, show moar.</button>
+        <button>Back</button>
         <p>You are looking for {{catQuery}} cats.</p>
       </section>
-      <section id="thumbs">
-        <header>These are the finds:</header>
-
-      </section>
-      <div ng-controller="renderCats">
-
-        <img ng-repeat="image in imageData" src={{image.images.downsized.url}}>
+      <section ng-controller="renderCats">
+        <h4>These are the finds:</h4>
+        <div class="thumblist-display-wrapper">
+          <img class="catgif-thumb" ng-repeat="catGif in imageData" src="{{catGif.thumb}}">
+        </div>
+    </section>
 
     </main>
     <footer>
