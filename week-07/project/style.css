@@ -19,7 +19,7 @@ main {
 
 .main-image {
   /* the image viewer */
-  background-image: url('./images/joshua-tree-national-park-74399_1280.jpg');
+  background-image: url('./src/joshua-tree-national-park-74399_1280.jpg');
   background-size: cover;
   background-position: center;
   flex-grow: 10;

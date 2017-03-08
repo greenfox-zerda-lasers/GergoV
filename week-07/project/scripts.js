@@ -38,7 +38,9 @@ var imageCache = [
   },
 ];
 
-function getImageCount () { return imageCache.length; };
+function getImageCount () { 
+	return imageCache.length; 
+};
 
 var mainImage = document.querySelectorAll('.main-image');
 var mainImageUrl = mainImage[0].style.backgroundImage;
@@ -52,7 +54,7 @@ function generateThumbs() {
     var newThumb = document.createElement('div')
     newThumb.setAttribute('class', 'thumbnail');
     newThumb.setAttribute('thumb-index', i);
-    var thumbImgValue = 'background-image: url(./images/' + e.url + ')';
+    var thumbImgValue = 'background-image: url(./src/' + e.url + ')';
     newThumb.setAttribute('style', thumbImgValue);
     thumbsBar.appendChild(newThumb);
     newThumb.addEventListener('click', clickThumb);
