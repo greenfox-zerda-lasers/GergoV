@@ -46,9 +46,22 @@ main {
   color: silver;
   margin: 2px;
 }
-.thumbnails {
+.thumbnail-wrapper {
   height: 45px;
   margin-top: 22px;
+}
+.thumbnail {
+  width: 45px;
+  height: 45px;
+  margin: 0px;
+  padding: 0px;
+}
+.thumbnail-active {
+  width: 45px;
+  height: 45px;
+  margin: 0px;
+  padding: 0px;
+  border: 2px dotted gold;
 }
 .main-image-bezel-left, .main-image-bezel-right {
   height: 100%;
@@ -60,4 +73,6 @@ main {
 }
 #arrow-right {
   transform: rotate(180deg);
+}
+#arrow-left {
 }
