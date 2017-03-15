@@ -14,9 +14,10 @@ function httpGetAsync(url, callback) {
   xmlHttp.send(null);
 }
 
-function renderImages(imageList) {
+function renderImages(images) {
+  let imageList = JSON.parse(images);
   let imagesNo = imageList.length;
-  console.log(imageList); // NOTE: Debug;
+  console.log(imageList, imagesNo); // NOTE: Debug;
   // NOTE: imageList looks like an array tho not an array.
   imageList.forEach( function(image, index) {
     let currentImage = document.createElement('img');
