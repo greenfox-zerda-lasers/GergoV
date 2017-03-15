@@ -15,15 +15,16 @@ function httpGetAsync(url, callback) {
 }
 
 function renderImages(images) {
-  let imageList = JSON.parse(images);
+  let imageList = JSON.parse(images); // So that it becomes an array
   let imagesNo = imageList.length;
   console.log(imageList, imagesNo); // NOTE: Debug;
   // NOTE: imageList looks like an array tho not an array.
   imageList.forEach( function(image, index) {
     let currentImage = document.createElement('img');
     currentImage.setAttribute('thumb-index', index);
+    currentImage.setAttribute('href', image);
     if (index === 0) {
-      mainImage.setAttribute('style', 'background-image: url(', image, ')');
+      mainImage.setAttribute('style', 'background-image: url(' + image + ')');
       currentImage.setAttribute('class', 'thumbnail-active');
     } else {
       currentImage.setAttribute('class', 'thumbnail');

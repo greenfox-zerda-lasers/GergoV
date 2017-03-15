@@ -6,16 +6,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-const p = './_data/';
 
 // Express config
 const app = express();
 const portNum = 8080;
 app.use(bodyParser.json());
 
-app.use(express.static('app'));
-app.use(express.static('_data'));
+app.use(express.static(__dirname + '/app'));
+app.use('/_data', express.static(__dirname + '/_data'));
 
+const p = './_data/';
 // Endpoints
 app.get('/files', function(req, res) {
 
