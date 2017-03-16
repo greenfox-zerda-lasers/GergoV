@@ -1,12 +1,12 @@
 'use strict';
 
 
-// Load images and thumbnails
+// *** Load images and thumbnails ***
 
 function httpGetAsync(url, callback) {
   const xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+    if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
       callback(xmlHttp.responseText);
     }
   };
@@ -35,7 +35,7 @@ function renderImages(images) {
 
 httpGetAsync('http://localhost:8080/files', renderImages);
 
-// Fetch interactive elements
+// *** Fetch interactive elements ***
 
 const mainImage = document.querySelector('.main-image-display');
 const leftBezel = document.querySelector('.main-image-bezel-left');
@@ -47,6 +47,12 @@ const rightArrow = document.querySelector('#arrow-right');
 const thumbnailBar = document.querySelector('.thumbnail-wrapper');
 const thumbnail = document.querySelectorAll('.thumbnail');
 const activeThumbnail = document.querySelector('.thumbnail-active');
-// Add functions to elements
 
-// Handle actions
+// *** Handle actions ***
+
+// ** Main image **
+// Bezel hover
+// Bezel clicks
+// ** Thumbs **
+// Hover: info popup
+// Click: image switch
