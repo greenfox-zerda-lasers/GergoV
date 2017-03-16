@@ -21,7 +21,7 @@ function renderImages(images) {
   // NOTE: imageList looks like an array tho not an array.
   imageList.forEach( function(image, index) {
     let currentImage = document.createElement('img');
-    currentImage.setAttribute('thumb-index', index);
+    currentImage.dataset.index = index;
     currentImage.setAttribute('src', image);
     if (index === 0) {
       mainImage.setAttribute('style', 'background-image: url(' + image + ')');
