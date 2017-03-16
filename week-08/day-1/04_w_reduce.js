@@ -1,5 +1,9 @@
+// AIRCRAFTS AND CARRIERS
+
+// Basic type data
 var aircraftTypes = {'F16': [8, 30], 'F35': [10, 50]};
 
+// 'Classes'
 function Aircraft(type) {
   this.type = type;
   this.maxAmmo = aircraftTypes[type][0];
@@ -18,6 +22,7 @@ function AmmoError() {
   this.message = 'Insufficient ammo on carrier!';
 }
 
+// Methods
 Aircraft.prototype.status_report = function() {
   console.log('Type ' + this.type + ', Ammo: ' + this.ammo + ', Base Damage: ' + this.baseDamage + ', All Damage: ' + this.baseDamage*this.ammo);
 };
@@ -84,6 +89,8 @@ Carrier.prototype.fight = function() {
   return totalDamage;
 };
 
+
+// Instantiations
 var fighter1 = new Aircraft('F16');
 var fighter2 = new Aircraft('F16');
 var fighter3 = new Aircraft('F35');
