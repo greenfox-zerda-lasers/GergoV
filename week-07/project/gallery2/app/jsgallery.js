@@ -22,9 +22,9 @@ function renderImages(images) {
   imageList.forEach( function(image, index) {
     let currentImage = document.createElement('img');
     currentImage.dataset.index = index;
-    currentImage.setAttribute('src', image);
+    currentImage.setAttribute('src', image.url);
     if (index === 0) {
-      mainImage.setAttribute('style', 'background-image: url(' + image + ')');
+      mainImage.setAttribute('style', 'background-image: url(' + image.url + ')');
       currentImage.setAttribute('class', 'thumbnail-active');
     } else {
       currentImage.setAttribute('class', 'thumbnail');

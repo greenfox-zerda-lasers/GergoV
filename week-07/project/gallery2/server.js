@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const ExifImage = require('exif').ExifImage;
 
 // Express config
 const app = express();
@@ -31,8 +32,18 @@ app.get('/files', function(req, res) {
       return path.join(p, file); // Add path to filenames
     }).filter(function filterFiles(file) {
       return fs.statSync(file).isFile(); // Return files only
-    }).forEach(function compileArray(file) {
-      imageList.push(file); // Compile list of files in array
+    }).forEach(function compileArray(file, index) {
+      try {
+          new ExifImage({ image : file }, function (error, exifData) {
+              if (error)
+                  console.log('Error: '+error.message);
+              else
+                  console.log(exifData); // Do something with your data!
+          });
+      } catch (error) {
+          console.log('Error: ' + error.message);
+      }
+      imageList.push({ "url":file, "metadata":ExifImage.exifData, }); // Compile list of files in array
     });
 
     res.send(imageList);
