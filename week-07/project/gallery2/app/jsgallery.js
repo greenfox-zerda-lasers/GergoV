@@ -22,7 +22,7 @@ function renderImages(images) {
   imageList.forEach( function(image, index) {
     let currentImage = document.createElement('img');
     currentImage.setAttribute('thumb-index', index);
-    currentImage.setAttribute('href', image);
+    currentImage.setAttribute('src', image);
     if (index === 0) {
       mainImage.setAttribute('style', 'background-image: url(' + image + ')');
       currentImage.setAttribute('class', 'thumbnail-active');
