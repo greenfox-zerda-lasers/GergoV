@@ -4,37 +4,37 @@ var imageCache = [
   {
     url: 'joshua-tree-national-park-74399_1280.jpg',
     title: 'Joshua Tree',
-    description: 'Deseret, consectetur adipiscing elit. Maecenas nulla velit, epice sed fringilla eget, faucibus at magna. Etiam eu.'
+    description: 'The desert is endless. Look at the dunes spreading all over the horizon.'
   },
   {
     url: 'beach-84631_1280.jpg',
     title: 'Sandy beach',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nulla velit, elementum sed fringilla eget, faucibus at magna. Etiam eu.'
+    description: 'This is the perfect place for a holiday. Or a perfect poster on your wall in a housing estate apartment in the 1980\'s.'
   },
   {
     url: 'iceberg-404966_1280.jpg',
     title: 'Iceberg',
-    description: 'Lorem ipsum dolor sit amet, Rosenberg adipiscing elit. Maecenas nulla velit, elementum sed fringilla eget, faucibus at magna. Etiam eu.'
+    description: 'Iceberg, Rosenberg... I don\'t really care.'
   },
   {
     url: 'lake-65443_1280.jpg',
     title: 'Lake',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nulla velit, elementum sed fringilla eget, faucibus at magna. Etiam eu.'
+    description: 'Want to take a dive?'
   },
   {
     url: 'prairie-679016_1920.jpg',
     title: 'Prairie',
-    description: 'Lorem ipsum dolor sit amet, Texas adipiscing elit. Maecenas nulla velit, elementum sed fringilla eget, armadillo at magna. Etiam eu.'
+    description: 'Prairie wolves roam these endless prairies praying for prey.'
   },
   {
     url: 'sunset-1700877_1280.jpg',
     title: 'Sunset',
-    description: 'Lorem ipsum dolor sit Aztec, consectetur adipiscing elit. Maecenas nulla velit, elementum sed fringilla eget, faucibus at magna. Etiam eu.'
+    description: 'End of the day. Good-bye!'
   },
   {
     url: 'the-scenery-679011_1280.jpg',
     title: 'Scenery',
-    description: 'Lorem ipsum forest sit amet, consectetur adipiscing elit. Maecenas erosio velit, elementum sed fringilla eget, faucibus at magna. Etiam eu.'
+    description: 'Ahm, some really nice view. What else to say.'
   },
 ];
 
@@ -42,8 +42,9 @@ function getImageCount () {
 	return imageCache.length; 
 };
 
-var mainImage = document.querySelectorAll('.main-image');
-var mainImageUrl = mainImage[0].style.backgroundImage;
+var mainImage = document.querySelector('.main-image');
+var currentTitle = mainImage.querySelector('h2');
+var currentDescription = mainImage.querySelector('p');
 
 var button = document.querySelectorAll('.side-nav-button');
 
@@ -54,6 +55,7 @@ function generateThumbs() {
     var newThumb = document.createElement('div')
     newThumb.setAttribute('class', 'thumbnail');
     newThumb.setAttribute('thumb-index', i);
+		newThumb.setAttribute('alt', e.title);
     var thumbImgValue = 'background-image: url(./src/' + e.url + ')';
     newThumb.setAttribute('style', thumbImgValue);
     thumbsBar.appendChild(newThumb);
@@ -63,9 +65,17 @@ function generateThumbs() {
 
 function clickThumb() {
   var clickedThumbIndex = this.getAttribute('thumb-index');
-  window.alert('You clicked thumb ' + clickedThumbIndex);
-  //var mainImageToThis = imageCache[clickedThumbIndex][url];
-  //mainImage[0].style.backgroundImage = './images/' + mainImageToThis;
+  mainImageSetter(clickedThumbIndex);
 };
 
+function mainImageSetter(clickedThumbIndex) {
+	var mainImageToThis = imageCache[clickedThumbIndex].url;
+	mainImage.style.backgroundImage = 'url(./src/' + mainImageToThis + ')';
+	
+	currentTitle.innerText = imageCache[clickedThumbIndex].title;
+	currentDescription.innerText = imageCache[clickedThumbIndex].description;
+	
+};
+
+mainImageSetter(0);
 generateThumbs();
